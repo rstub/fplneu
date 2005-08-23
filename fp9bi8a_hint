@@ -1,0 +1,4 @@
+#-*-Shell-script-*-
+#  Time-stamp: <2005-08-21 19:43:33 ralf> 
+# vertical StemSnap
+ChangePrivateEntry("StemSnapV","[114 138]");

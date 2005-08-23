@@ -1,0 +1,5 @@
+#!/usr/bin/env fontforge
+Open($1)
+Reencode("unicode");
+ScaleToEm(2048);
+Generate($1:r+".ttf","",0x80);

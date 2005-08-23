@@ -1,0 +1,8 @@
+#!/usr/bin/env fontforge
+Open($1)
+# No UniqueID (needs recent ff to work properly)
+SetUniqueID(-1);
+# use OtherSubrs from URW (needs recent ff to work properly)
+ReadOtherSubrsFile("URW-OtherSubrs.ps");
+Reencode("AdobeStandardEncoding");
+Generate($1:r+".pfb","",0x3);

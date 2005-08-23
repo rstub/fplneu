@@ -1,0 +1,38 @@
+#-*-Shell-script-*-
+#  Time-stamp: <2005-08-21 20:32:59 ralf> 
+# vertical StemSnap
+ChangePrivateEntry("StemSnapV","[72 76 78 88]");
+
+# hint 5
+Select("5");
+
+ClearHints();
+AddHHint(-11,36);
+AddHHint(389,45);
+AddHHint(623,69);
+AddVHint(359,86);
+
+# hint 7
+Select("7");
+
+ClearHints();
+AddHHint(613,79);
+
+# hint B
+Select("B");
+
+ClearHints();
+AddHHint(-6,40);
+AddHHint(340,36);
+AddHHint(650,39);
+AddVHint(455,88);
+AddVHint(473,86);
+
+# hint Z
+Select("Z");
+SelectMore("Zdotaccent");
+SelectMore("Zcaron");
+
+ClearHints();
+AddHHint(-3,42);
+AddHHint(652,39);

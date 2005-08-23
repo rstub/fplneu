@@ -1,0 +1,55 @@
+#-*-Shell-script-*-
+#  Time-stamp: <2005-08-21 20:09:05 ralf> 
+# BlueValues
+ChangePrivateEntry("BlueValues","[-20 0 456 469 484 499 689 709]");
+
+# hint D
+Select("D");
+SelectMore("Eth");
+SelectMore("Dcaron");
+SelectMore("Dcroat");
+
+ClearHints();
+AddHHint(-1,42)
+AddHHint(652,39)
+AddVHint(113,95)
+AddVHint(644,107)
+
+Select("Eth");
+SelectMore("Dcroat");
+AddHHint(346,36)
+
+# hint T
+Select("T");
+SelectMore("Tcedilla");
+SelectMore("Tcaron");
+#SelectMore("Tbar");
+SelectMore("Tcommaaccent");
+
+ClearHints();
+AddHHint(-3,30)
+AddHHint(643,46)
+AddVHint(259,95)
+
+Select("Tcedilla");
+AddHHint(-211,36)
+AddHHint(-93,36)
+AddVHint(336,74)
+
+# hint Z
+Select("Z");
+SelectMore("Zdotaccent");
+SelectMore("Zcaron");
+
+ClearHints();
+AddHHint(-3,47)
+AddHHint(648,43)
+
+# add hint to serifs in v, w, y
+Select("v");
+SelectMore("w");
+SelectMore("y");
+SelectMore("yacute");
+SelectMore("ydieresis");
+#SelectMore("ycircmflex");
+AddHHint(431,28)

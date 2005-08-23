@@ -1,0 +1,245 @@
+#!/usr/bin/env fontforge
+# Time-stamp: <2005-08-21 19:52:59 ralf> 
+# Copyright 2005 Ralf Stubner
+# See the file COPYING (GNU General Public License) for license
+# conditions. 
+
+Open("uplb8a.pfb");
+Reencode("unicode");
+# proper setup with names etc
+fontname="FPLNeu-Bold";
+fontfamily="FPL Neu";
+fullname="FPL Neu Bold";
+copyright=$copyright+", Copyright 2000, 2002 Diego Puga, Copyright 2004, 2005 Ralf Stubner.";
+copyright=AddGPL(copyright);
+copyright=AddException(copyright);
+fontversion="0.9.1";
+
+SetFontNames(fontname,fontfamily,fullname,"",copyright,fontversion);
+# No UniqueID (needs recent ff to work properly)
+SetUniqueID(-1);
+# use OtherSubrs from URW (needs recent ff to work properly)
+ReadOtherSubrsFile("URW-OtherSubrs.ps");
+
+# delete characters with ogonek, mu, at
+Select("Aogonek");
+SelectMore("aogonek");
+SelectMore("Eogonek");
+SelectMore("eogonek");
+SelectMore("Iogonek");
+SelectMore("iogonek");
+SelectMore("Uogonek");
+SelectMore("uogonek");
+SelectMore("ogonek");
+SelectMore("mu");
+SelectMore("at");
+Clear();
+
+# rename paragraph
+Select("paragraph");
+SetUnicodeValue(0xe015);
+SetCharName("paragraph.alt1",0);
+Reencode("unicode");
+
+# IJ,ij
+Select("IJ","ij");
+BuildComposite();
+UnlinkReference();
+
+# copyright, registered, published
+Select("C");
+Copy();
+Select("copyright");
+Clear();
+Paste();
+Scale(59);
+RoundToInt();
+Move(-20,0);
+Select("R");
+Copy();
+Select("registered");
+Clear();
+Paste();
+Scale(59);
+RoundToInt();
+Select("P");
+Copy();
+Select(0x2117);
+Paste();
+Scale(59);
+Move(60,0);
+RoundToInt();
+
+
+# shift [Tt]commaacent
+Select("Tcommaaccent");
+SetUnicodeValue(0x021a);
+Select("tcommaaccent");
+SetUnicodeValue(0x021b);
+Reencode("unicode");
+
+# build [Tt]cedilla
+Select(0x0162);
+BuildAccented();
+UnlinkReference();
+RemoveOverlap();
+Simplify();
+RoundToInt();
+Select(0x0163);
+BuildAccented();
+UnlinkReference();
+RemoveOverlap();
+Simplify();
+RoundToInt();
+
+# rename [Tt]cedilla and [Tt]commaacent
+# we ignore the AGL here
+Select(0x0162);
+SetCharName("Tcedilla",0);
+Reencode("unicode");
+Select(0x0163);
+SetCharName("tcedilla",0);
+Reencode("unicode");
+Select(0x021a);
+SetCharName("Tcommaaccent",0);
+Reencode("unicode");
+Select(0x021b);
+SetCharName("tcommaaccent",0);
+Reencode("unicode");
+
+
+# cwm
+Select(0x200C);
+SetWidth(0);
+
+# centigrade
+Select(0x2103);
+BuildComposite();
+UnlinkReference();
+
+# nbspace
+Select("space");
+width=CharInfo("Width");
+Select(0x00A0);
+SetWidth(width);
+
+# softhyphen
+Select("hyphen");
+Copy();
+Select(0x00AD);
+Paste();
+
+# ordmasculine, ordfeminine and numero
+Select("macron");
+Copy();
+Select(0x2116);
+Paste();
+Scale(90,70);
+RoundToInt();
+Move(0,-250);
+Copy();
+Select("ordmasculine");
+SelectMore("ordfeminine");
+SetWidth(334);
+CenterInWidth();
+AutoHint()
+PasteInto();
+Select("ordmasculine");
+Copy();
+Select(0x2116);
+Paste();
+Select("N");
+Copy();
+width=CharInfo("Width");
+Select(0x2116);
+Move(width,0);
+PasteInto();
+
+# asteriskmath
+Select("asterisk");
+Copy();
+Select(0x2217);
+Paste();
+Move(0,-204);
+
+# new dashes
+Select("endash");
+Copy();
+# threequartersemdash
+Select(0xf6de);
+SetCharName("threequartersemdash",0);
+Paste();
+Move(250,0);
+PasteInto();
+RemoveOverlap();
+Simplify();
+Reencode("unicode");
+# twelveudash
+Select(0xe014);
+SetCharName("twelveudash",0);
+Paste();
+Move(166,0);
+PasteInto();
+RemoveOverlap();
+Simplify();
+Reencode("unicode");
+
+# Germandbls
+Select("S");
+width=CharInfo("Width");
+Copy();
+Select(0xe013);
+SetCharName("germandbls.cap",0);
+Paste();
+Move(width,0);
+PasteInto();
+Reencode("unicode");
+# dblverticalbar
+Select("bar");
+width=CharInfo("Width");
+Copy();
+Select(0x2016);
+Paste();
+Move(width-400,0);
+PasteInto();
+
+# fix cacute
+Select("c");
+Copy();
+Select("cacute");
+CopyFgToBg();
+Paste();
+Select("acute");
+Copy();
+Select("cacute");
+PasteWithOffset(80,0);
+
+# get new glyphs
+MergeFonts("fp9b8a-fix.sfd");
+# mho
+Select("Omega");
+Copy();
+Select(0x2127);
+Paste();
+Rotate(180);
+# finish copyright, registered, Pcircle
+Select("circle");
+Copy();
+Select("copyright");
+SelectMore("registered");
+SelectMore(0x2117);
+PasteInto();
+SetWidth(747);
+
+# add kerning
+RemoveAllKerns();
+MergeKern("fp9b8a-fix.afm");
+
+fp9b8a_hint();
+
+Reencode("unicode");
+SetCharCnt(65536);
+Save("fp9b8a.sfd");
+Quit(0);
+
+

@@ -1,0 +1,32 @@
+-*- coding: utf-8 -*-
+
+[x] Asmall -> a.sc 
+[x] oneoldstyle -> one.oldstyle
+[x] fi -> f_i
+[x] Germandbls -> S_S/germandbls.cap
+[x] add πμ 
+[ ] other greeks for QX? αβδ...
+[ ] compare ¹ ² ³ with ½ ¾ 
+[ ] fplneu.sty
+[ ] f <x> auf ff <x> übertragen?
+        fp9ri
+          f_f egrave 
+          {f,f_f} [bhk]
+        fp9bi
+          {f,f_f} egrave
+[x] AGL renaming
+  nonbreakingspace  ??? uni00a0   
+  softhyphen        ??? uni00ad
+  dblverticalbar    evtl bar_bar
+  centigrade    evtl degree_C
+  numero        evtl N_o oder N_ordmasculine (AGL: afii61352)
+  mho        ??? uni2127 (evtl omega.turned)
+  Pcircle        ??? uni24c5 (evtl P.circled)
+  threequartersemdash ???
+  cwm        ??? uni200c
+  twelveudash    ???
+  Germandbls     ???   (zZ gibt es daneben auch S_S und germandbls.cap)
+  visiblespace    ??? uni2423
+  perthousandzero ???
+[ ] review hinting
+
