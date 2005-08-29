@@ -1,4 +1,4 @@
-# Time-stamp: <2005-08-21 19:59:54 ralf> 
+# Time-stamp: <2005-08-29 20:08:36 ralf> 
 # Copyright 2005 Ralf Stubner
 # See the file COPYING (GNU General Public License) for license conditions. 
 
@@ -58,3 +58,8 @@ dist: type1
 	cp fp9r8a.pfm fp9ri8a.pfm fp9b8a.pfm fp9bi8a.pfm dist/fonts/type1/public/fplneu/
 	cp fp9r8a.afm fp9ri8a.afm fp9b8a.afm fp9bi8a.afm dist/fonts/afm/public/fplneu/
 	(cd dist; zip -r fp9-fonts.zip fonts/)
+
+.PHONY: dist check type1 opentype truetype
+
+# don't delete intermediate sfd files
+.SECONDARY:

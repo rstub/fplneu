@@ -1,5 +1,5 @@
 #!/usr/bin/env fontforge
-# Time-stamp: <2005-08-21 19:52:25 ralf> 
+# Time-stamp: <2005-08-29 19:59:40 ralf> 
 # Copyright 2005 Ralf Stubner
 # See the file COPYING (GNU General Public License) for license
 # conditions. 
@@ -94,20 +94,14 @@ RemoveOverlap();
 Simplify();
 RoundToInt();
 
-# rename [Tt]cedilla and [Tt]commaacent
-# we ignore the AGL here
+# naming of [Tt]cedilla and [Tt]commaacent
+# The AGL names would be [Tt]commaacent for [Tt]cedilla and uni021[ab]
+# for [Tt]commaacent. We try to avoid this mess by using uni016[23]
+# and uni021[ab].
 Select(0x0162);
-SetCharName("Tcedilla",0);
-Reencode("unicode");
+SetCharName("uni0162");
 Select(0x0163);
-SetCharName("tcedilla",0);
-Reencode("unicode");
-Select(0x021a);
-SetCharName("Tcommaaccent",0);
-Reencode("unicode");
-Select(0x021b);
-SetCharName("tcommaaccent",0);
-Reencode("unicode");
+SetCharName("uni0163");
 
 # cwm
 Select(0x200C);

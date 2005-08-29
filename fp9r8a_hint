@@ -1,5 +1,5 @@
 #-*-Shell-script-*-
-#  Time-stamp: <2005-08-21 20:09:05 ralf> 
+#  Time-stamp: <2005-08-29 20:04:58 ralf> 
 # BlueValues
 ChangePrivateEntry("BlueValues","[-20 0 456 469 484 499 689 709]");
 
@@ -21,17 +21,17 @@ AddHHint(346,36)
 
 # hint T
 Select("T");
-SelectMore("Tcedilla");
+SelectMore("uni0162");
 SelectMore("Tcaron");
 #SelectMore("Tbar");
-SelectMore("Tcommaaccent");
+SelectMore("uni021a");
 
 ClearHints();
 AddHHint(-3,30)
 AddHHint(643,46)
 AddVHint(259,95)
 
-Select("Tcedilla");
+Select("uni0162");
 AddHHint(-211,36)
 AddHHint(-93,36)
 AddVHint(336,74)

@@ -6,6 +6,8 @@ Version 0.9.1
 
         * BlueZone a x-height for bold font
 
+        * rename [Tt]cedilla to uni016[23] and [Tt]commaacent to uni021[ab]
+
 
 Version 0.9, 2005-07-18
         * first public release
