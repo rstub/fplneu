@@ -1,13 +1,18 @@
+Version 0.9.2
+        * rename tcedilla.sc to uni0163.sc and tcommaacent.sc to uni021B.sc
+       
+
 Version 0.9.1
         * changed position of acute in cacute to be comparable with
           eacute in bold and regular font
 
         * improved hinting for regular (DTZvwy) and italic (57BZ) font
 
-        * BlueZone a x-height for bold font
+        * BlueZone at x-height for bold font
 
-        * rename [Tt]cedilla to uni016[23] and [Tt]commaacent to uni021[ab]
+        * rename [Tt]cedilla to uni016[23] and [Tt]commaacent to uni021[AB]
 
 
 Version 0.9, 2005-07-18
         * first public release
+
