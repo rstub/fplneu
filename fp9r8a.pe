@@ -1,5 +1,5 @@
 #!/usr/bin/env fontforge
-# Time-stamp: <2006-01-18 00:13:09 ralf> 
+# Time-stamp: <2006-01-28 11:36:19 ralf> 
 # Copyright 2005 Ralf Stubner
 # See the file COPYING (GNU General Public License) for license
 # conditions. 
@@ -13,7 +13,7 @@ fullname="FPL Neu Roman";
 copyright=$copyright+", Copyright 2000, 2002 Diego Puga, Copyright 2004, 2005 Ralf Stubner.";
 copyright=AddGPL(copyright);
 copyright=AddException(copyright);
-fontversion="0.9.1";
+fontversion="0.9.2";
 
 SetFontNames(fontname,fontfamily,fullname,"",copyright,fontversion);
 # No UniqueID (needs recent ff to work properly)

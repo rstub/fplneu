@@ -1,4 +1,4 @@
-# Time-stamp: <2005-08-29 20:08:36 ralf> 
+# Time-stamp: <2006-03-03 10:15:30 ralf> 
 # Copyright 2005 Ralf Stubner
 # See the file COPYING (GNU General Public License) for license conditions. 
 
@@ -45,15 +45,15 @@ truetype: fp9r8a.ttf fp9ri8a.ttf fp9b8a.ttf fp9bi8a.ttf
 # check the Type1 fonts for some common errors
 check: type1
 	for font in fp9r8a.pfb fp9ri8a.pfb fp9b8a.pfb fp9bi8a.pfb; do \
-	     echo -en $${font}"\t"; \
-	     t1disasm $${font} | egrep --count 'div[^i]'; \
+	     t1disasm $${font} | egrep --with-filename --label=$${font} --count 'div[^i]'; \
 	     t1lint $${font}; \
 	done
 
 # prepare Type1 fonts for distribution
 dist: type1
 	rm -rf dist/
-	mkdir -p dist/fonts/{type1,afm}/public/fplneu
+	mkdir -p dist/fonts/type1/public/fplneu
+	mkdir -p dist/fonts/afm/public/fplneu
 	cp fp9r8a.pfb fp9ri8a.pfb fp9b8a.pfb fp9bi8a.pfb dist/fonts/type1/public/fplneu/
 	cp fp9r8a.pfm fp9ri8a.pfm fp9b8a.pfm fp9bi8a.pfm dist/fonts/type1/public/fplneu/
 	cp fp9r8a.afm fp9ri8a.afm fp9b8a.afm fp9bi8a.afm dist/fonts/afm/public/fplneu/
