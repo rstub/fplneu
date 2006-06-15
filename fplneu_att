@@ -1,0 +1,13 @@
+#-*-Shell-script-*-
+#  Time-stamp: <2006-06-15 19:56:01 ralf> 
+# add ATT/OTL features to all fonts
+
+# OsF
+Select("zero", "nine");
+foreach
+  figure=GlyphInfo("name");
+  AddATT("Substitution", "latn{dflt}", "onum", -1, figure+".oldstyle");
+endloop
+
+
+

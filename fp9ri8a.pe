@@ -1,5 +1,5 @@
 #!/usr/bin/env fontforge
-# Time-stamp: <2006-01-28 11:36:11 ralf> 
+# Time-stamp: <2006-06-15 20:23:40 ralf> 
 # Copyright 2005 Ralf Stubner
 # See the file COPYING (GNU General Public License) for license
 # conditions. 
@@ -22,7 +22,7 @@ fullname="FPL Neu Italic";
 copyright=$copyright+", Copyright 2000, 2002 Diego Puga, Copyright 2004, 2005 Ralf Stubner.";
 copyright=AddGPL(copyright);
 copyright=AddException(copyright);
-fontversion="0.9.2";
+fontversion=Version();
 
 SetFontNames(fontname,fontfamily,fullname,"",copyright,fontversion);
 # No UniqueID (needs recent ff to work properly)
@@ -42,6 +42,14 @@ SelectMore("uogonek");
 SelectMore("ogonek");
 SelectMore("at");
 Clear();
+
+# move Delta and rename it to uni2206 
+Select("Delta");
+SetUnicodeValue(0x2206);
+
+# move mu and rename it to uni00B5
+Select("mu");
+SetUnicodeValue(0x00B5);
 
 # rename paragraph
 Select("paragraph");
@@ -100,6 +108,7 @@ Select(0x0162);
 SetCharName("uni0162");
 Select(0x0163);
 SetCharName("uni0163");
+Reencode("unicode");
 
 # cwm
 Select(0x200C);
@@ -206,7 +215,12 @@ Rotate(180);
 RemoveAllKerns();
 MergeKern("fp9ri8a-fix.afm");
 
+# hinting
 fp9ri8a_hint();
+
+# ATT/OTL
+fplneu_att();
+fp9ri8a_att();
 
 Reencode("unicode");
 SetCharCnt(65536);

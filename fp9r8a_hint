@@ -1,7 +1,7 @@
 #-*-Shell-script-*-
-#  Time-stamp: <2005-08-29 20:04:58 ralf> 
+#  Time-stamp: <2006-06-12 00:16:28 ralf> 
 # BlueValues
-ChangePrivateEntry("BlueValues","[-20 0 456 469 484 499 689 709]");
+ChangePrivateEntry("BlueValues","[-20 0 692 712 456 469 484 499]");
 
 # hint D
 Select("D");

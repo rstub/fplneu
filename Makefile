@@ -1,8 +1,10 @@
-# Time-stamp: <2006-03-03 10:15:30 ralf> 
+# Time-stamp: <2006-06-15 20:12:55 ralf> 
 # Copyright 2005 Ralf Stubner
 # See the file COPYING (GNU General Public License) for license conditions. 
 
 FONTFORGE=fontforge -script
+
+COMMON=AddGPL AddException Version fplneu_att
 
 default: type1
 
@@ -14,14 +16,17 @@ all: type1
 # 	* a SFD file with new/fixed glyphs
 #	* a AFM file with new/fixed metrics
 #       * a FF file with new/fixed hinting 
+#       * a FF file with new/fixed ATT/OTL tables
+#       * some general files
+#
 #
 # Italic fonts also depend on:
 #	* the weight corresponding roman SFD file (circled characters)
 #
-%i8a.sfd: %i8a.pe  %i8a-fix.sfd %i8a-fix.afm %i8a_hint %8a.sfd
+%i8a.sfd: %i8a.pe  %i8a-fix.sfd %i8a-fix.afm %i8a_hint %i8a_att $(COMMON) %8a.sfd
 	$(FONTFORGE) $*i8a.pe
 
-%8a.sfd: %8a.pe  %8a-fix.sfd %8a-fix.afm %8a_hint
+%8a.sfd: %8a.pe  %8a-fix.sfd %8a-fix.afm %8a_hint %8a_att $(COMMON)
 	$(FONTFORGE) $*8a.pe
 
 # Type1 creation

@@ -1,3 +1,27 @@
+Version 0.9.3
+	* All fonts:
+           - AGL renaming
+              nonbreakingspace   =>  uni00A0      
+              softhyphen         =>  uni00AD
+              mu                 =>  uni00B5
+              Delta              =>  uni2206
+	* Italic font:
+	   - added [Oo]ogonek
+           - left top serif in kra changed from 'k' to 'n' style
+	* Bold font:
+           - slighlty lighter @
+	   - new ogonek with reduced weight
+	   - redone all characters with ogonek 
+	   - added [Oo]ogonek
+	   - improved hinting in new glyphs
+	* Bold-Italic font:
+	   - new ogonek with reduced weight
+	   - redone all characters with ogonek 
+	   - added [Oo]ogonek
+           - left top serif in kra changed from 'k' to 'n' style
+	   - improved hinting in new glyphs
+
+	
 Version 0.9.2
         * rename tcedilla.sc to uni0163.sc and tcommaacent.sc to uni021B.sc
        
