@@ -1,5 +1,5 @@
 #!/usr/bin/env fontforge
-# Time-stamp: <2006-06-15 20:07:29 ralf> 
+# Time-stamp: <2006-06-16 21:43:54 ralf> 
 # Copyright 2005 Ralf Stubner
 # See the file COPYING (GNU General Public License) for license
 # conditions. 
@@ -129,7 +129,7 @@ Copy();
 Select(0x00AD);
 Paste();
 
-# ordmasculine, ordfeminine and numero
+# ordmasculine, ordfeminine
 Select("macron");
 Copy();
 Select(0x2116);
@@ -137,19 +137,9 @@ Paste();
 Scale(90,70);
 RoundToInt();
 Move(0,-200);
-Copy();
+Cut();
 Select("ordmasculine");
 SelectMore("ordfeminine");
-PasteInto();
-Select("ordmasculine");
-Copy();
-Select(0x2116);
-Paste();
-Select("N");
-Copy();
-width=CharInfo("Width");
-Select(0x2116);
-Move(width,0);
 PasteInto();
 
 # asteriskmath
@@ -221,6 +211,14 @@ SelectMore("q.sc");
 RemoveOverlap();
 Simplify();
 RoundToInt();
+# numero
+Select("ordmasculine");
+Copy();
+width_o=CharInfo("Width");
+Select(0x2116);
+width_N=CharInfo("Width");
+PasteWithOffset(width_N,0);
+SetWidth(width_N + width_o);
 # mho
 Select("Omega");
 Copy();

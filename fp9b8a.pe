@@ -1,5 +1,5 @@
 #!/usr/bin/env fontforge
-# Time-stamp: <2006-06-15 20:57:23 ralf> 
+# Time-stamp: <2006-06-16 21:42:54 ralf> 
 # Copyright 2005 Ralf Stubner
 # See the file COPYING (GNU General Public License) for license
 # conditions. 
@@ -128,7 +128,7 @@ Copy();
 Select(0x00AD);
 Paste();
 
-# ordmasculine, ordfeminine and numero
+# ordmasculine, ordfeminine
 Select("macron");
 Copy();
 Select(0x2116);
@@ -136,22 +136,12 @@ Paste();
 Scale(90,70);
 RoundToInt();
 Move(0,-250);
-Copy();
+Cut();
 Select("ordmasculine");
 SelectMore("ordfeminine");
 SetWidth(334);
 CenterInWidth();
 AutoHint()
-PasteInto();
-Select("ordmasculine");
-Copy();
-Select(0x2116);
-Paste();
-Select("N");
-Copy();
-width=CharInfo("Width");
-Select(0x2116);
-Move(width,0);
 PasteInto();
 
 # asteriskmath
@@ -215,6 +205,14 @@ PasteWithOffset(80,0);
 
 # get new glyphs
 MergeFonts("fp9b8a-fix.sfd");
+# numero
+Select("ordmasculine");
+Copy();
+width_o=CharInfo("Width");
+Select(0x2116);
+width_N=CharInfo("Width");
+PasteWithOffset(width_N,0);
+SetWidth(width_N + width_o);
 # mho
 Select("Omega");
 Copy();

@@ -1,5 +1,6 @@
 Version 0.9.3
 	* All fonts:
+           - numero with narrow N
            - AGL renaming
               nonbreakingspace   =>  uni00A0      
               softhyphen         =>  uni00AD
