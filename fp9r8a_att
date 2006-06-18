@@ -1,5 +1,5 @@
 #-*-Shell-script-*-
-#  Time-stamp: <2006-06-15 21:01:10 ralf> 
+#  Time-stamp: <2006-06-18 15:03:07 ralf> 
 
 # select latin glyphs
 Select("A", "Z");
@@ -15,6 +15,15 @@ foreach
   RemoveATT("Position", "latn{dflt}", "rtbd");
   RemoveATT("Position", "latn{dflt}", "lfbd");
 endloop
+
+
+# i is special
+# fixme: definitions for Turkish, Azerbaijani
+Select("dotlessi");
+AddATT("Substitution", "latn{dflt}", "smcp", -1, "i.sc");
+
+# Select("Idotaccent");
+# AddATT("Substitution", "latn{dflt}", "c2sc", -1, "idotaccent.sc");
 
 #   glyphname=GlyphInfo("name");
 #   if( SelectIf(glyphname+".sc") == 1)

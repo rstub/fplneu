@@ -1,6 +1,6 @@
 #!/usr/bin/env fontforge
-# Time-stamp: <2006-06-16 21:43:07 ralf> 
-# Copyright 2005 Ralf Stubner
+# Time-stamp: <2006-06-17 10:44:47 ralf> 
+# Copyright 2005, 2006 Ralf Stubner
 # See the file COPYING (GNU General Public License) for license
 # conditions. 
 
@@ -19,7 +19,7 @@ Reencode("unicode");
 fontname="FPLNeu-BoldItalic";
 fontfamily="FPL Neu";
 fullname="FPL Neu Bold Italic";
-copyright=$copyright+", Copyright 2000, 2002 Diego Puga, Copyright 2004, 2005 Ralf Stubner.";
+copyright=$copyright+", Copyright 2000, 2002 Diego Puga, Copyright 2004--2006 Ralf Stubner.";
 copyright=AddGPL(copyright);
 copyright=AddException(copyright);
 fontversion=Version();
