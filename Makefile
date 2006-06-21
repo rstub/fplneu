@@ -1,5 +1,5 @@
-# Time-stamp: <2006-06-15 20:12:55 ralf> 
-# Copyright 2005 Ralf Stubner
+# Time-stamp: <2006-06-18 16:29:57 ralf> 
+# Copyright 2005, 2006 Ralf Stubner
 # See the file COPYING (GNU General Public License) for license conditions. 
 
 FONTFORGE=fontforge -script
@@ -8,7 +8,7 @@ COMMON=AddGPL AddException Version fplneu_att
 
 default: type1
 
-all: type1
+all: type1 opentype truetype
 
 #
 # Every font depends on: 
@@ -49,6 +49,10 @@ truetype: fp9r8a.ttf fp9ri8a.ttf fp9b8a.ttf fp9bi8a.ttf
 
 # check the Type1 fonts for some common errors
 check: type1
+	for f in dist/fonts/afm/public/fplneu/*; do \
+	     n=$$(basename $$f); \
+	     afmdiff.awk $$f $$n | less ; \
+        done
 	for font in fp9r8a.pfb fp9ri8a.pfb fp9b8a.pfb fp9bi8a.pfb; do \
 	     t1disasm $${font} | egrep --with-filename --label=$${font} --count 'div[^i]'; \
 	     t1lint $${font}; \

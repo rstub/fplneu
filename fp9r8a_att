@@ -1,20 +1,24 @@
 #-*-Shell-script-*-
-#  Time-stamp: <2006-06-18 15:03:07 ralf> 
+#  Time-stamp: <2006-06-21 00:32:55 ralf> 
 
 # select latin glyphs
-Select("A", "Z");
-SelectMore("a", "z");
-SelectMore(0x00c0, 0x024F);
-SelectMore(0x1E00, 0x1EFF);
+# Select("A", "Z");
+# SelectMore("a", "z");
+# SelectMore(0x00c0, 0x024F);
+# SelectMore(0x1E00, 0x1EFF);
 
-#SelectAll();
+SelectAll();
+
+DefaultATT("aalt");
+# lc -> sc
 DefaultATT("smcp");
+# uc -> sc
 DefaultATT("c2sc");
 
-foreach
-  RemoveATT("Position", "latn{dflt}", "rtbd");
-  RemoveATT("Position", "latn{dflt}", "lfbd");
-endloop
+# foreach
+#   RemoveATT("Position", "latn{dflt}", "rtbd");
+#   RemoveATT("Position", "latn{dflt}", "lfbd");
+# endloop
 
 
 # i is special

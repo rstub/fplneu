@@ -2,15 +2,15 @@ Version 0.9.3
 	* All fonts:
            - numero with narrow N
            - AGL renaming
-              nonbreakingspace   =>  uni00A0      
-              softhyphen         =>  uni00AD
-              mu                 =>  uni00B5
-              Delta              =>  uni2206
+               nonbreakingspace  =>  uni00A0      
+               softhyphen        =>  uni00AD
+               mu                =>  uni00B5
+               Delta             =>  uni2206
+           - started to add OTL features: smcp, c2sc, onum, caps, locl
 	* Roman font:
            - fontforge now leaves hhint at the upper serifs in 'H' 
            - added uni018E for XeTeX logo :-)
            - added [ai]macron.sc, idotaccent.sc
-           - added smcp feature dotlessi -> i.sc
 	* Italic font:
 	   - added [Oo]ogonek
            - left top serif in kra changed from 'k' to 'n' style
