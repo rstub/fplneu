@@ -1,5 +1,5 @@
 #-*-Shell-script-*-
-#  Time-stamp: <2006-06-21 00:52:54 ralf> 
+#  Time-stamp: <2006-06-21 23:50:44 ralf> 
 # add ATT/OTL features to all fonts
 
 # substitutions for Romanian
@@ -35,10 +35,12 @@ foreach
   SelectFewer(figure+".oldstyle");
 endloop
 
-SelectAll();
+#SelectAll();
 # OsF
 DefaultATT("onum")
-
+# superiour and inferiour
+DefaultATT("sups");
+DefaultATT("subs");
 
 
 

@@ -1,3 +1,9 @@
+Version 0.9.4
+	* Roman font:
+          - removed {one,two,three,four}{superior,inferior}
+          - added slightly darker {zero,..,nine}.{superior,inferior} 
+          - added 'sups'  and 'subs' OTL feature
+
 Version 0.9.3
 	* All fonts:
            - numero with narrow N

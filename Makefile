@@ -1,4 +1,4 @@
-# Time-stamp: <2006-06-18 16:29:57 ralf> 
+# Time-stamp: <2006-06-21 09:41:48 ralf> 
 # Copyright 2005, 2006 Ralf Stubner
 # See the file COPYING (GNU General Public License) for license conditions. 
 
@@ -63,10 +63,12 @@ dist: type1
 	rm -rf dist/
 	mkdir -p dist/fonts/type1/public/fplneu
 	mkdir -p dist/fonts/afm/public/fplneu
+	mkdir -p dist/doc/fonts/fplneu
 	cp fp9r8a.pfb fp9ri8a.pfb fp9b8a.pfb fp9bi8a.pfb dist/fonts/type1/public/fplneu/
 	cp fp9r8a.pfm fp9ri8a.pfm fp9b8a.pfm fp9bi8a.pfm dist/fonts/type1/public/fplneu/
 	cp fp9r8a.afm fp9ri8a.afm fp9b8a.afm fp9bi8a.afm dist/fonts/afm/public/fplneu/
-	(cd dist; zip -r fp9-fonts.zip fonts/)
+	cp CHANGES dist/doc/fonts/fplneu/
+	(cd dist; zip -r fp9-fonts.zip fonts/ doc/)
 
 .PHONY: dist check type1 opentype truetype
 
