@@ -1,5 +1,6 @@
 Version 0.9.4
 	* Roman font:
+          - narrower pi 
           - removed {one,two,three,four}{superior,inferior}
           - added slightly darker {zero,..,nine}.{superior,inferior} 
           - added 'sups'  and 'subs' OTL feature

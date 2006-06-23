@@ -30,4 +30,5 @@
   perthousandzero ???
 [ ] review hinting (Vstem Bold)
 [ ] \textdiscount, U+2052 COMMERCIAL MINUS SIGN, ./. ??
-
+[ ] use ReplaceWithReference(), this allows, eg, MoveReference() for
+   cacute fixing, consistent hinting, etc
