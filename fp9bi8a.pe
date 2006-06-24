@@ -1,5 +1,5 @@
 #!/usr/bin/env fontforge
-# Time-stamp: <2006-06-17 10:44:47 ralf> 
+# Time-stamp: <2006-06-24 20:27:50 ralf> 
 # Copyright 2005, 2006 Ralf Stubner
 # See the file COPYING (GNU General Public License) for license
 # conditions. 
@@ -31,6 +31,7 @@ SetUniqueID(-1);
 ReadOtherSubrsFile("URW-OtherSubrs.ps");
 
 # delete characters with ogonek, at
+# onesuperior, twosuperior, threesuperior
 Select("Aogonek");
 SelectMore("aogonek");
 SelectMore("Eogonek");
@@ -41,6 +42,9 @@ SelectMore("Uogonek");
 SelectMore("uogonek");
 SelectMore("ogonek");
 SelectMore("at");
+SelectMore("onesuperior");
+SelectMore("twosuperior");
+SelectMore("threesuperior"); 
 Clear();
 
 # move Delta and rename it to uni2206 
@@ -205,7 +209,7 @@ width_N=CharInfo("Width");
 PasteWithOffset(width_N,0);
 SetWidth(width_N + width_o);
 # mho
-Select("Omega");
+Select(0x2126);
 Copy();
 Select(0x2127);
 Paste();

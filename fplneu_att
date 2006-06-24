@@ -1,30 +1,33 @@
 #-*-Shell-script-*-
-#  Time-stamp: <2006-06-24 12:40:33 ralf> 
+#  Time-stamp: <2006-06-24 18:22:32 ralf> 
 # add ATT/OTL features to all fonts
+
+# most features get defined for these latin languages
+defaultlatn="latn{dflt,ROM}"
 
 # substitutions for Romanian
 # [Ss]cedilla -> [Ss]commaaccent
 Select("Scedilla");
-AddATT("Substitution", "latn{ROM}",      "locl", -1, "Scommaaccent");
-AddATT("Substitution", "latn{dflt,ROM}", "ss01", -1, "Scommaaccent");
+AddATT("Substitution", "latn{ROM}", "locl", -1, "Scommaaccent");
+AddATT("Substitution", defaultlatn, "ss01", -1, "Scommaaccent");
 Select("scedilla");
-AddATT("Substitution", "latn{ROM}",      "locl", -1, "scommaaccent");
-AddATT("Substitution", "latn{dflt,ROM}", "ss01", -1, "scommaaccent");
+AddATT("Substitution", "latn{ROM}", "locl", -1, "scommaaccent");
+AddATT("Substitution", defaultlatn, "ss01", -1, "scommaaccent");
 if(SelectIf("scedilla.sc") == 1)
-  AddATT("Substitution", "latn{ROM}",      "locl", -1, "scommaaccent.sc");
-  AddATT("Substitution", "latn{dflt,ROM}", "ss01", -1, "scommaaccent.sc");
+  AddATT("Substitution", "latn{ROM}", "locl", -1, "scommaaccent.sc");
+  AddATT("Substitution", defaultlatn, "ss01", -1, "scommaaccent.sc");
 endif
 
 # [Tt]cedilla -> [Tt]commaaccent
 Select("uni0162");
-AddATT("Substitution", "latn{ROM}",      "locl", -1, "uni021A");
-AddATT("Substitution", "latn{dflt,ROM}", "ss01", -1, "uni021A");
+AddATT("Substitution", "latn{ROM}", "locl", -1, "uni021A");
+AddATT("Substitution", defaultlatn, "ss01", -1, "uni021A");
 Select("uni0163");
-AddATT("Substitution", "latn{ROM}",      "locl", -1, "uni021B");
-AddATT("Substitution", "latn{dflt,ROM}", "ss01", -1, "uni021B");
+AddATT("Substitution", "latn{ROM}", "locl", -1, "uni021B");
+AddATT("Substitution", defaultlatn, "ss01", -1, "uni021B");
 if(SelectIf("uni0163.sc") == 1)
-  AddATT("Substitution", "latn{ROM}",      "locl", -1, "uni021B.sc");
-  AddATT("Substitution", "latn{dflt,ROM}", "ss01", -1, "uni021B.sc");
+  AddATT("Substitution", "latn{ROM}", "locl", -1, "uni021B.sc");
+  AddATT("Substitution", defaultlatn, "ss01", -1, "uni021B.sc");
 endif
 
 # onum, sups, subs, and caps for figures
@@ -32,14 +35,14 @@ Select("zero", "nine");
 foreach
   figure=GlyphInfo("name");
   # these three could also be done with DefaultATT() 
-  AddATT("Substitution", "latn{dflt,ROM}", "onum", -1, figure+".oldstyle");
-  AddATT("Substitution", "latn{dflt,ROM}", "sups", -1, figure+".superior");
-  AddATT("Substitution", "latn{dflt,ROM}", "subs", -1, figure+".inferior");
+  AddATT("Substitution", defaultlatn, "onum", -1, figure+".oldstyle");
+  AddATT("Substitution", defaultlatn, "sups", -1, figure+".superior");
+  AddATT("Substitution", defaultlatn, "subs", -1, figure+".inferior");
   # these three could /not/ be done with DefaultATT() 
   Select(figure+".oldstyle");
-  AddATT("Substitution", "latn{dflt,ROM}", "caps", -1, figure);
-  AddATT("Substitution", "latn{dflt,ROM}", "sups", -1, figure+".superior");
-  AddATT("Substitution", "latn{dflt,ROM}", "subs", -1, figure+".inferior");
+  AddATT("Substitution", defaultlatn, "case", -1, figure);
+  AddATT("Substitution", defaultlatn, "sups", -1, figure+".superior");
+  AddATT("Substitution", defaultlatn, "subs", -1, figure+".inferior");
   SelectFewer(figure+".oldstyle");
 endloop
 

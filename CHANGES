@@ -1,13 +1,14 @@
 Version 0.9.4
 	* All fonts:
-          - added stylistic set 'ss01': 
-            [SsTt]commaaccent instead of [SsTt]cedilla
-          - 'subs' and 'sups' also for OsF
+           - AGL renaming
+               Omega  =>  uni2126      
+           - added stylistic set 'ss01': 
+             [SsTt]commaaccent instead of [SsTt]cedilla
+           - removed {one,two,three,four}{superior,inferior}
+           - added slightly darker {zero,..,nine}.{superior,inferior} 
+           - added 'sups'  and 'subs' OTL feature
 	* Roman font:
-          - narrower pi 
-          - removed {one,two,three,four}{superior,inferior}
-          - added slightly darker {zero,..,nine}.{superior,inferior} 
-          - added 'sups'  and 'subs' OTL feature
+           - narrower pi 
 
 Version 0.9.3
 	* All fonts:
@@ -17,7 +18,7 @@ Version 0.9.3
                softhyphen        =>  uni00AD
                mu                =>  uni00B5
                Delta             =>  uni2206
-           - started to add OTL features: smcp, c2sc, onum, caps, locl
+           - started to add OTL features: smcp, c2sc, onum, case, locl
 	* Roman font:
            - fontforge now leaves hhint at the upper serifs in 'H' 
            - added uni018E for XeTeX logo :-)
