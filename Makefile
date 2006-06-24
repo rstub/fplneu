@@ -1,4 +1,4 @@
-# Time-stamp: <2006-06-21 09:41:48 ralf> 
+# Time-stamp: <2006-06-24 21:10:18 ralf> 
 # Copyright 2005, 2006 Ralf Stubner
 # See the file COPYING (GNU General Public License) for license conditions. 
 
@@ -16,17 +16,18 @@ all: type1 opentype truetype
 # 	* a SFD file with new/fixed glyphs
 #	* a AFM file with new/fixed metrics
 #       * a FF file with new/fixed hinting 
-#       * a FF file with new/fixed ATT/OTL tables
 #       * some general files
 #
+# currently not used:
+#       * a FF file with new/fixed ATT/OTL tables
 #
 # Italic fonts also depend on:
 #	* the weight corresponding roman SFD file (circled characters)
 #
-%i8a.sfd: %i8a.pe  %i8a-fix.sfd %i8a-fix.afm %i8a_hint %i8a_att $(COMMON) %8a.sfd
+%i8a.sfd: %i8a.pe  %i8a-fix.sfd %i8a-fix.afm %i8a_hint $(COMMON) %8a.sfd
 	$(FONTFORGE) $*i8a.pe
 
-%8a.sfd: %8a.pe  %8a-fix.sfd %8a-fix.afm %8a_hint %8a_att $(COMMON)
+%8a.sfd: %8a.pe  %8a-fix.sfd %8a-fix.afm %8a_hint $(COMMON)
 	$(FONTFORGE) $*8a.pe
 
 # Type1 creation

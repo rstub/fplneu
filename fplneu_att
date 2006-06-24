@@ -1,5 +1,5 @@
 #-*-Shell-script-*-
-#  Time-stamp: <2006-06-24 18:22:32 ralf> 
+#  Time-stamp: <2006-06-24 21:08:37 ralf> 
 # add ATT/OTL features to all fonts
 
 # most features get defined for these latin languages
@@ -47,4 +47,14 @@ foreach
 endloop
 
 
+SelectAll();
+#DefaultATT("aalt");
+# lc -> sc
+DefaultATT("smcp");
+# uc -> sc
+DefaultATT("c2sc");
 
+# i is special
+# fixme: definitions for Turkish, Azerbaijani
+Select("dotlessi");
+AddATT("Substitution", defaultlatn, "smcp", -1, "i.sc");
