@@ -32,3 +32,4 @@
 [ ] \textdiscount, U+2052 COMMERCIAL MINUS SIGN, ./. ??
 [ ] use ReplaceWithReference(), this allows, eg, MoveReference() for
    cacute fixing, consistent hinting, etc
+[ ] upright 'florin', differenciate 'f' and 'florin' in italic shapes

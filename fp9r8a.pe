@@ -1,5 +1,5 @@
 #!/usr/bin/env fontforge
-# Time-stamp: <2006-06-21 23:44:14 ralf> 
+# Time-stamp: <2006-06-24 13:26:19 ralf> 
 # Copyright 2005, 2006 Ralf Stubner
 # See the file COPYING (GNU General Public License) for license
 # conditions. 
@@ -211,6 +211,7 @@ PasteWithOffset(80,0);
 MergeFonts("fp9r8a-fix.sfd");
 Select("uni0163.sc");
 SelectMore("q.sc");
+UnlinkReference();
 RemoveOverlap();
 Simplify();
 RoundToInt();

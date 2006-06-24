@@ -1,4 +1,8 @@
 Version 0.9.4
+	* All fonts:
+          - added stylistic set 'ss01': 
+            [SsTt]commaaccent instead of [SsTt]cedilla
+          - 'subs' and 'sups' also for OsF
 	* Roman font:
           - narrower pi 
           - removed {one,two,three,four}{superior,inferior}
