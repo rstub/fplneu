@@ -6,7 +6,9 @@ Version 0.9.4
              [SsTt]commaaccent instead of [SsTt]cedilla
            - removed {one,two,three,four}{superior,inferior}
            - added slightly darker {zero,..,nine}.{superior,inferior} 
-           - added 'sups'  and 'subs' OTL feature
+           - added 'sups'  and 'sinf' OTL feature
+           - added slightly darker {zero,..,nine}.{numerator,denominator} 
+           - added 'numr'  and 'dnom' OTL feature
 	* Roman font:
            - narrower pi 
 	* Italic and Bold-Italic font:

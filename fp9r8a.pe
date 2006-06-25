@@ -1,5 +1,5 @@
 #!/usr/bin/env fontforge
-# Time-stamp: <2006-06-24 21:09:24 ralf> 
+# Time-stamp: <2006-06-25 18:59:39 ralf> 
 # Copyright 2005, 2006 Ralf Stubner
 # See the file COPYING (GNU General Public License) for license
 # conditions. 
@@ -248,6 +248,30 @@ Paste();
 Move(width,0);
 PasteInto();
 Reencode("unicode");
+
+# build numerator and denominator figures
+Select("zero", "nine");
+ii=0;
+foreach
+  # preparation
+  figure=GlyphInfo("name");
+  Select(figure+".superior");
+  width=CharInfo("Width");
+  CopyReference();
+  # numerator
+  Select(0xe020+ii);
+  PasteWithOffset(0,-147);
+  SetCharName(figure+".numerator",0);
+  SetWidth(width);
+  # denominator
+  Select(0xe030+ii);
+  PasteWithOffset(0,-423);
+  SetCharName(figure+".denominator",0);
+  SetWidth(width);
+  # finish
+  SelectFewer(0xe030+ii);
+  ii++;
+endloop
 
 # hinting
 fp9r8a_hint();

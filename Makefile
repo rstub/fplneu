@@ -1,4 +1,4 @@
-# Time-stamp: <2006-06-25 13:47:51 ralf> 
+# Time-stamp: <2006-06-25 13:51:33 ralf> 
 # Copyright 2005, 2006 Ralf Stubner
 # See the file COPYING (GNU General Public License) for license conditions. 
 
@@ -78,7 +78,7 @@ dist: type1
 	mkdir -p dist/fonts/afm/public/fplneu
 	mkdir -p dist/doc/fonts/fplneu
 	cp $(PFB) dist/fonts/type1/public/fplneu/
-	cp $(PFM) fp9bi8a.pfm dist/fonts/type1/public/fplneu/
+	cp $(PFM) dist/fonts/type1/public/fplneu/
 	cp $(AFM) dist/fonts/afm/public/fplneu/
 	cp $(DOC) dist/doc/fonts/fplneu/
 	(cd dist; zip -r fp9-fonts.zip fonts/ doc/)

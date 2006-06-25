@@ -1,5 +1,5 @@
 #-*-Shell-script-*-
-#  Time-stamp: <2006-06-24 21:08:37 ralf> 
+#  Time-stamp: <2006-06-25 18:53:03 ralf> 
 # add ATT/OTL features to all fonts
 
 # most features get defined for these latin languages
@@ -30,22 +30,30 @@ if(SelectIf("uni0163.sc") == 1)
   AddATT("Substitution", defaultlatn, "ss01", -1, "uni021B.sc");
 endif
 
-# onum, sups, subs, and caps for figures
+# onum, sups, sinf, numr, dnom, and caps for figures
 Select("zero", "nine");
 foreach
   figure=GlyphInfo("name");
   # these three could also be done with DefaultATT() 
   AddATT("Substitution", defaultlatn, "onum", -1, figure+".oldstyle");
   AddATT("Substitution", defaultlatn, "sups", -1, figure+".superior");
-  AddATT("Substitution", defaultlatn, "subs", -1, figure+".inferior");
+  AddATT("Substitution", defaultlatn, "sinf", -1, figure+".inferior");
+  AddATT("Substitution", defaultlatn, "numr", -1, figure+".numerator");
+  AddATT("Substitution", defaultlatn, "dnom", -1, figure+".denominator");
   # these three could /not/ be done with DefaultATT() 
   Select(figure+".oldstyle");
   AddATT("Substitution", defaultlatn, "case", -1, figure);
   AddATT("Substitution", defaultlatn, "sups", -1, figure+".superior");
-  AddATT("Substitution", defaultlatn, "subs", -1, figure+".inferior");
+  AddATT("Substitution", defaultlatn, "sinf", -1, figure+".inferior");
+  AddATT("Substitution", defaultlatn, "numr", -1, figure+".numerator");
+  AddATT("Substitution", defaultlatn, "dnom", -1, figure+".denominator");
   SelectFewer(figure+".oldstyle");
 endloop
 
+# numr and dnom for slash
+Select("slash");
+AddATT("Substitution", defaultlatn, "numr", -1, "fraction");
+AddATT("Substitution", defaultlatn, "dnom", -1, "fraction");
 
 SelectAll();
 #DefaultATT("aalt");
