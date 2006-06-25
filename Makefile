@@ -1,10 +1,18 @@
-# Time-stamp: <2006-06-24 21:10:18 ralf> 
+# Time-stamp: <2006-06-25 13:47:51 ralf> 
 # Copyright 2005, 2006 Ralf Stubner
 # See the file COPYING (GNU General Public License) for license conditions. 
 
 FONTFORGE=fontforge -script
 
 COMMON=AddGPL AddException Version fplneu_att
+
+PFB=fp9r8a.pfb fp9ri8a.pfb fp9b8a.pfb fp9bi8a.pfb
+AFM=$(patsubst %.pfb,%.afm,$(PFB))
+PFM=$(patsubst %.pfb,%.pfm,$(PFB))
+TTF=$(patsubst %.pfb,%.ttf,$(PFB))
+OTF=$(patsubst %.pfb,%.otf,$(PFB))
+
+DOC=CHANGES COPYING
 
 default: type1
 
@@ -34,19 +42,19 @@ all: type1 opentype truetype
 %.pfb: %.sfd
 	$(FONTFORGE) generate-type1.pe $*.sfd
 
-type1: fp9r8a.pfb fp9ri8a.pfb fp9b8a.pfb fp9bi8a.pfb
+type1: $(PFB)
 
 # OTF creation
 %.otf: %.sfd
 	$(FONTFORGE) generate-otf.pe $*.sfd
 
-opentype: fp9r8a.otf fp9ri8a.otf fp9b8a.otf fp9bi8a.otf
+opentype: $(OTF)
 
 # TTF creation
 %.ttf: %.sfd
 	$(FONTFORGE) generate-ttf.pe $*.sfd
 
-truetype: fp9r8a.ttf fp9ri8a.ttf fp9b8a.ttf fp9bi8a.ttf
+truetype: $(TTF)
 
 # check the Type1 fonts for some common errors
 check: type1
@@ -54,10 +62,14 @@ check: type1
 	     n=$$(basename $$f); \
 	     afmdiff.awk $$f $$n | less ; \
         done
-	for font in fp9r8a.pfb fp9ri8a.pfb fp9b8a.pfb fp9bi8a.pfb; do \
+	for font in $(PFB); do \
 	     t1disasm $${font} | egrep --with-filename --label=$${font} --count 'div[^i]'; \
 	     t1lint $${font}; \
 	done
+
+# Testpage
+FPLNeu.pdf: type1
+	(for font in $(PFB); do t1testpage $${font}; done) | ps2pdf - > $@
 
 # prepare Type1 fonts for distribution
 dist: type1
@@ -65,10 +77,10 @@ dist: type1
 	mkdir -p dist/fonts/type1/public/fplneu
 	mkdir -p dist/fonts/afm/public/fplneu
 	mkdir -p dist/doc/fonts/fplneu
-	cp fp9r8a.pfb fp9ri8a.pfb fp9b8a.pfb fp9bi8a.pfb dist/fonts/type1/public/fplneu/
-	cp fp9r8a.pfm fp9ri8a.pfm fp9b8a.pfm fp9bi8a.pfm dist/fonts/type1/public/fplneu/
-	cp fp9r8a.afm fp9ri8a.afm fp9b8a.afm fp9bi8a.afm dist/fonts/afm/public/fplneu/
-	cp CHANGES dist/doc/fonts/fplneu/
+	cp $(PFB) dist/fonts/type1/public/fplneu/
+	cp $(PFM) fp9bi8a.pfm dist/fonts/type1/public/fplneu/
+	cp $(AFM) dist/fonts/afm/public/fplneu/
+	cp $(DOC) dist/doc/fonts/fplneu/
 	(cd dist; zip -r fp9-fonts.zip fonts/ doc/)
 
 .PHONY: dist check type1 opentype truetype
