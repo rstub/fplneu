@@ -1,5 +1,5 @@
 #!/usr/bin/env fontforge
-# Time-stamp: <2006-06-25 18:59:39 ralf> 
+# Time-stamp: <2006-07-03 21:57:37 ralf> 
 # Copyright 2005, 2006 Ralf Stubner
 # See the file COPYING (GNU General Public License) for license
 # conditions. 
@@ -7,15 +7,16 @@
 Open("uplr8a.pfb");
 Reencode("unicode");
 # proper setup with names etc
-fontname="FPLNeu-Roman";
+fontname="FPLNeu-Regular";
 fontfamily="FPL Neu";
-fullname="FPL Neu Roman";
+fullname="FPL Neu Regular";
+weight="Regular";
 copyright=$copyright+", Copyright 2000, 2002 Diego Puga, Copyright 2004--2006 Ralf Stubner.";
 copyright=AddGPL(copyright);
 copyright=AddException(copyright);
 fontversion=Version();
 
-SetFontNames(fontname,fontfamily,fullname,"",copyright,fontversion);
+SetFontNames(fontname,fontfamily,fullname,weight,copyright,fontversion);
 # No UniqueID (needs recent ff to work properly)
 SetUniqueID(-1);
 # use OtherSubrs from URW (needs recent ff to work properly)

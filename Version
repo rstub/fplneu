@@ -1,2 +1,2 @@
 # central place for setting version number
-return "0.9.4";
+return "0.9.5";
