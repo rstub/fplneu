@@ -1,4 +1,4 @@
-# Time-stamp: <2006-06-25 13:51:33 ralf> 
+# Time-stamp: <2006-07-03 22:33:00 ralf> 
 # Copyright 2005, 2006 Ralf Stubner
 # See the file COPYING (GNU General Public License) for license conditions. 
 
@@ -83,7 +83,16 @@ dist: type1
 	cp $(DOC) dist/doc/fonts/fplneu/
 	(cd dist; zip -r fp9-fonts.zip fonts/ doc/)
 
-.PHONY: dist check type1 opentype truetype
+# prepare OpenType fonts for distribution
+dist-otf: opentype
+	rm -rf dist-otf/
+	mkdir dist-otf
+	cp $(OTF) dist-otf/
+	cp $(DOC) dist-otf/
+	cp README.opentype dist-otf/README
+	(cd dist-otf; zip -r fplneu-otf.zip *)
+
+.PHONY: dist dist-otf check type1 opentype truetype
 
 # don't delete intermediate sfd files
 .SECONDARY:

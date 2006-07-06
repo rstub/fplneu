@@ -1,33 +1,37 @@
 #-*-Shell-script-*-
-#  Time-stamp: <2006-06-25 18:53:03 ralf> 
+#  Time-stamp: <2006-07-07 00:19:44 ralf> 
 # add ATT/OTL features to all fonts
 
 # most features get defined for these latin languages
-defaultlatn="latn{dflt,ROM}"
+LatinAll="latn{AZE,CRT,MOL,ROM,TRK,dflt}"
+# [TtSs]cedilla => [TtSs]commaaccent
+LatinROM="latn{MOL,ROM}"
+# idotless, Idotaccent
+LatinTRK="latn{AZE,CRT,TRK}"
 
 # substitutions for Romanian
 # [Ss]cedilla -> [Ss]commaaccent
 Select("Scedilla");
-AddATT("Substitution", "latn{ROM}", "locl", -1, "Scommaaccent");
-AddATT("Substitution", defaultlatn, "ss01", -1, "Scommaaccent");
+AddATT("Substitution", LatinROM, "locl", -1, "Scommaaccent");
+AddATT("Substitution", LatinAll, "ss01", -1, "Scommaaccent");
 Select("scedilla");
-AddATT("Substitution", "latn{ROM}", "locl", -1, "scommaaccent");
-AddATT("Substitution", defaultlatn, "ss01", -1, "scommaaccent");
+AddATT("Substitution", LatinROM, "locl", -1, "scommaaccent");
+AddATT("Substitution", LatinAll, "ss01", -1, "scommaaccent");
 if(SelectIf("scedilla.sc") == 1)
-  AddATT("Substitution", "latn{ROM}", "locl", -1, "scommaaccent.sc");
-  AddATT("Substitution", defaultlatn, "ss01", -1, "scommaaccent.sc");
+  AddATT("Substitution", LatinROM, "locl", -1, "scommaaccent.sc");
+  AddATT("Substitution", LatinAll, "ss01", -1, "scommaaccent.sc");
 endif
 
 # [Tt]cedilla -> [Tt]commaaccent
 Select("uni0162");
-AddATT("Substitution", "latn{ROM}", "locl", -1, "uni021A");
-AddATT("Substitution", defaultlatn, "ss01", -1, "uni021A");
+AddATT("Substitution", LatinROM, "locl", -1, "uni021A");
+AddATT("Substitution", LatinAll, "ss01", -1, "uni021A");
 Select("uni0163");
-AddATT("Substitution", "latn{ROM}", "locl", -1, "uni021B");
-AddATT("Substitution", defaultlatn, "ss01", -1, "uni021B");
+AddATT("Substitution", LatinROM, "locl", -1, "uni021B");
+AddATT("Substitution", LatinAll, "ss01", -1, "uni021B");
 if(SelectIf("uni0163.sc") == 1)
-  AddATT("Substitution", "latn{ROM}", "locl", -1, "uni021B.sc");
-  AddATT("Substitution", defaultlatn, "ss01", -1, "uni021B.sc");
+  AddATT("Substitution", LatinROM, "locl", -1, "uni021B.sc");
+  AddATT("Substitution", LatinAll, "ss01", -1, "uni021B.sc");
 endif
 
 # onum, sups, sinf, numr, dnom, and caps for figures
@@ -35,25 +39,25 @@ Select("zero", "nine");
 foreach
   figure=GlyphInfo("name");
   # these three could also be done with DefaultATT() 
-  AddATT("Substitution", defaultlatn, "onum", -1, figure+".oldstyle");
-  AddATT("Substitution", defaultlatn, "sups", -1, figure+".superior");
-  AddATT("Substitution", defaultlatn, "sinf", -1, figure+".inferior");
-  AddATT("Substitution", defaultlatn, "numr", -1, figure+".numerator");
-  AddATT("Substitution", defaultlatn, "dnom", -1, figure+".denominator");
+  AddATT("Substitution", LatinAll, "onum", -1, figure+".oldstyle");
+  AddATT("Substitution", LatinAll, "sups", -1, figure+".superior");
+  AddATT("Substitution", LatinAll, "subs", -1, figure+".inferior");
+  AddATT("Substitution", LatinAll, "numr", -1, figure+".numerator");
+  AddATT("Substitution", LatinAll, "dnom", -1, figure+".denominator");
   # these three could /not/ be done with DefaultATT() 
   Select(figure+".oldstyle");
-  AddATT("Substitution", defaultlatn, "case", -1, figure);
-  AddATT("Substitution", defaultlatn, "sups", -1, figure+".superior");
-  AddATT("Substitution", defaultlatn, "sinf", -1, figure+".inferior");
-  AddATT("Substitution", defaultlatn, "numr", -1, figure+".numerator");
-  AddATT("Substitution", defaultlatn, "dnom", -1, figure+".denominator");
+  AddATT("Substitution", LatinAll, "case", -1, figure);
+  AddATT("Substitution", LatinAll, "sups", -1, figure+".superior");
+  AddATT("Substitution", LatinAll, "subs", -1, figure+".inferior");
+  AddATT("Substitution", LatinAll, "numr", -1, figure+".numerator");
+  AddATT("Substitution", LatinAll, "dnom", -1, figure+".denominator");
   SelectFewer(figure+".oldstyle");
 endloop
 
 # numr and dnom for slash
 Select("slash");
-AddATT("Substitution", defaultlatn, "numr", -1, "fraction");
-AddATT("Substitution", defaultlatn, "dnom", -1, "fraction");
+AddATT("Substitution", LatinAll, "numr", -1, "fraction");
+AddATT("Substitution", LatinAll, "dnom", -1, "fraction");
 
 SelectAll();
 #DefaultATT("aalt");
@@ -61,8 +65,13 @@ SelectAll();
 DefaultATT("smcp");
 # uc -> sc
 DefaultATT("c2sc");
+# standard ligaturs
+DefaultATT("liga");
 
 # i is special
-# fixme: definitions for Turkish, Azerbaijani
 Select("dotlessi");
-AddATT("Substitution", defaultlatn, "smcp", -1, "i.sc");
+AddATT("Substitution", LatinAll, "smcp", -1, "i.sc");
+Select("i");
+# is it possible to remove the i -> i.sc replacement for LatinTRK?
+#RemoveATT("Substitution",LatinTRK,"smcp");
+AddATT("Substitution", LatinTRK, "smcp", -1, "idotaccent.sc");
