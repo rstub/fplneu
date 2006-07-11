@@ -7,4 +7,4 @@ if(index > 0)
     fullname=Strsub($fullname,0,index);
     SetFontNames("","",fullname);
 endif
-Generate($1:r+".otf","",0x80);
+Generate($1:r+".otf");

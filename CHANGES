@@ -4,6 +4,7 @@ Version 0.9.5
         * use 'subs' instead of 'sinf' for below baseline subscripts
           (Adobe has changed their mind on this)
         * special 'smcp' for 'i' in Turkish etc
+        * generate only OTL tables
 
 Version 0.9.4
 	* All fonts:
