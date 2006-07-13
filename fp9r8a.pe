@@ -1,5 +1,5 @@
 #!/usr/bin/env fontforge
-# Time-stamp: <2006-07-03 21:57:37 ralf> 
+# Time-stamp: <2006-07-12 21:52:56 ralf> 
 # Copyright 2005, 2006 Ralf Stubner
 # See the file COPYING (GNU General Public License) for license
 # conditions. 
@@ -279,7 +279,7 @@ fp9r8a_hint();
 
 # ATT/OTL
 fplneu_att();
-#fp9r8a_att();
+fp9r8a_att();
 
 # kerning
 RemoveAllKerns();

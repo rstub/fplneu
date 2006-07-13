@@ -3,7 +3,7 @@ Ideas for FPL Neu:
 
 * 'real' or 'faked' opticals (especially 'caption')
 
-* ligatures (fk, fj, ft, fb, fh, Th, ...)
+* ligatures (fk, fj, ft, fb, fh, Th, st, ct, longs* ...)
 
 * 'inferior' and 'superior' figures
 
@@ -22,3 +22,8 @@ Ideas for FPL Neu:
 * IPA extensions
 
 * greek, cyrillic
+
+* swashes
+
+* contextual rules for longs--s
+

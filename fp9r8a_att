@@ -1,5 +1,120 @@
 #-*-Shell-script-*-
-#  Time-stamp: <2006-06-21 00:32:55 ralf> 
+#  Time-stamp: <2006-07-13 22:45:11 ralf> 
+
+SetPref("PreferSpacingAccents",0);
+
+# create combining accent
+Select("dotaccent");
+CopyReference();
+width=GlyphInfo("Width"); 
+# tildecomb
+Select(0x0307);
+PasteWithOffset(-width-200,0);
+bbox=GlyphInfo("BBox");
+AddAnchorPoint("top", "mark", Int((bbox[2]+bbox[0])/2), 535);
+# tildecomblow
+Select(0x0323);
+PasteWithOffset(-width-200,-700);
+bbox=GlyphInfo("BBox");
+AddAnchorPoint("bot", "mark", Int((bbox[2]+bbox[0])/2), 0);
+
+Select("tilde");
+CopyReference();
+width=GlyphInfo("Width"); 
+# tildecomb
+Select(0x0303);
+PasteWithOffset(-width-100,0);
+bbox=GlyphInfo("BBox");
+AddAnchorPoint("top", "mark", Int((bbox[2]+bbox[0])/2), 535);
+# tildecomblow
+Select(0x0330);
+PasteWithOffset(-width-100,-700);
+bbox=GlyphInfo("BBox");
+AddAnchorPoint("bot", "mark", Int((bbox[2]+bbox[0])/2), 0);
+
+Select("macron");
+CopyReference();
+width=GlyphInfo("Width"); 
+# other macron
+Select(0x02C9);
+Paste();
+# macroncomb
+Select(0x0304);
+PasteWithOffset(-width-100,0);
+bbox=GlyphInfo("BBox");
+AddAnchorPoint("top", "mark", Int((bbox[2]+bbox[0])/2), 535);
+# macroncomblow
+Select(0x0331);
+PasteWithOffset(-width-100,-700);
+bbox=GlyphInfo("BBox");
+AddAnchorPoint("bot", "mark", Int((bbox[2]+bbox[0])/2), 0);
+
+
+
+
+# anchor points
+Select("c");
+AddAnchorPoint("top", "basechar", 268, 535);
+AddAnchorPoint("bot", "basechar", 268, 0);
+
+Select("C");
+AddAnchorPoint("top", "basechar", 416, 750);
+AddAnchorPoint("bot", "basechar", 416, 0);
+
+Select("g");
+AddAnchorPoint("top", "basechar", 279, 535);
+AddAnchorPoint("bot", "basechar", 279, 0);
+
+Select("G");
+AddAnchorPoint("top", "basechar", 422, 750);
+AddAnchorPoint("bot", "basechar", 422, 0);
+
+Select("dotlessi");
+AddAnchorPoint("top", "basechar", 146, 535);
+SelectMore("i");
+foreach
+  AddAnchorPoint("bot", "basechar", 146, 0);
+endloop
+
+Select("I");
+AddAnchorPoint("top", "basechar", 168, 730);
+SelectMore("Idotaccent");
+foreach
+  AddAnchorPoint("bot", "basechar", 168, 0);
+endloop
+
+Select("l");
+AddAnchorPoint("top", "basechar", 146, 750);
+AddAnchorPoint("bot", "basechar", 146, 0);
+
+Select("L");
+AddAnchorPoint("top", "basechar", 168, 730);
+AddAnchorPoint("bot", "basechar", 300, 0);
+
+Select("r");
+AddAnchorPoint("top", "basechar", 200, 535);
+AddAnchorPoint("bot", "basechar", 160, 0);
+
+Select("R");
+AddAnchorPoint("top", "basechar", 320, 730);
+AddAnchorPoint("bot", "basechar", 320, 0);
+
+Select("u");
+AddAnchorPoint("top", "basechar", 300, 535);
+AddAnchorPoint("bot", "basechar", 300, 0);
+
+Select("U");
+AddAnchorPoint("top", "basechar", 410, 730);
+AddAnchorPoint("bot", "basechar", 410, 0);
+
+Select("Cdotaccent", "cdotaccent");
+SelectMore("Gdotaccent", "gdotaccent");
+SelectMore("Itilde", "itilde");
+SelectMore("Utilde", "utilde");
+SelectMore("uni1E2C", "uni1E2D");
+SelectMore("uni1E74", "uni1E75");
+BuildAccented();
+SetGlyphColor(0xffff00); 
 
 # select latin glyphs
 # Select("A", "Z");
@@ -7,27 +122,18 @@
 # SelectMore(0x00c0, 0x024F);
 # SelectMore(0x1E00, 0x1EFF);
 
-SelectAll();
+# SelectAll();
 
-DefaultATT("aalt");
-# lc -> sc
-DefaultATT("smcp");
-# uc -> sc
-DefaultATT("c2sc");
+# DefaultATT("aalt");
+# # lc -> sc
+# DefaultATT("smcp");
+# # uc -> sc
+# DefaultATT("c2sc");
 
 # foreach
 #   RemoveATT("Position", "latn{dflt}", "rtbd");
 #   RemoveATT("Position", "latn{dflt}", "lfbd");
 # endloop
-
-
-# i is special
-# fixme: definitions for Turkish, Azerbaijani
-Select("dotlessi");
-AddATT("Substitution", "latn{dflt}", "smcp", -1, "i.sc");
-
-# Select("Idotaccent");
-# AddATT("Substitution", "latn{dflt}", "c2sc", -1, "idotaccent.sc");
 
 #   glyphname=GlyphInfo("name");
 #   if( SelectIf(glyphname+".sc") == 1)

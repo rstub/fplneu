@@ -1,5 +1,5 @@
 #-*-Shell-script-*-
-#  Time-stamp: <2006-07-07 00:19:44 ralf> 
+#  Time-stamp: <2006-07-13 21:37:55 ralf> 
 # add ATT/OTL features to all fonts
 
 # most features get defined for these latin languages
@@ -9,42 +9,17 @@ LatinROM="latn{MOL,ROM}"
 # idotless, Idotaccent
 LatinTRK="latn{AZE,CRT,TRK}"
 
-# substitutions for Romanian
-# [Ss]cedilla -> [Ss]commaaccent
-Select("Scedilla");
-AddATT("Substitution", LatinROM, "locl", -1, "Scommaaccent");
-AddATT("Substitution", LatinAll, "ss01", -1, "Scommaaccent");
-Select("scedilla");
-AddATT("Substitution", LatinROM, "locl", -1, "scommaaccent");
-AddATT("Substitution", LatinAll, "ss01", -1, "scommaaccent");
-if(SelectIf("scedilla.sc") == 1)
-  AddATT("Substitution", LatinROM, "locl", -1, "scommaaccent.sc");
-  AddATT("Substitution", LatinAll, "ss01", -1, "scommaaccent.sc");
-endif
-
-# [Tt]cedilla -> [Tt]commaaccent
-Select("uni0162");
-AddATT("Substitution", LatinROM, "locl", -1, "uni021A");
-AddATT("Substitution", LatinAll, "ss01", -1, "uni021A");
-Select("uni0163");
-AddATT("Substitution", LatinROM, "locl", -1, "uni021B");
-AddATT("Substitution", LatinAll, "ss01", -1, "uni021B");
-if(SelectIf("uni0163.sc") == 1)
-  AddATT("Substitution", LatinROM, "locl", -1, "uni021B.sc");
-  AddATT("Substitution", LatinAll, "ss01", -1, "uni021B.sc");
-endif
-
-# onum, sups, sinf, numr, dnom, and caps for figures
+# onum, sups, subs, numr, dnom, and caps for figures
 Select("zero", "nine");
 foreach
   figure=GlyphInfo("name");
-  # these three could also be done with DefaultATT() 
+  # some of these could also be done with DefaultATT() 
   AddATT("Substitution", LatinAll, "onum", -1, figure+".oldstyle");
   AddATT("Substitution", LatinAll, "sups", -1, figure+".superior");
   AddATT("Substitution", LatinAll, "subs", -1, figure+".inferior");
   AddATT("Substitution", LatinAll, "numr", -1, figure+".numerator");
   AddATT("Substitution", LatinAll, "dnom", -1, figure+".denominator");
-  # these three could /not/ be done with DefaultATT() 
+  # these could /not/ be done with DefaultATT() 
   Select(figure+".oldstyle");
   AddATT("Substitution", LatinAll, "case", -1, figure);
   AddATT("Substitution", LatinAll, "sups", -1, figure+".superior");
@@ -75,3 +50,32 @@ Select("i");
 # is it possible to remove the i -> i.sc replacement for LatinTRK?
 #RemoveATT("Substitution",LatinTRK,"smcp");
 AddATT("Substitution", LatinTRK, "smcp", -1, "idotaccent.sc");
+
+# substitutions for Romanian
+# [Ss]cedilla -> [Ss]commaaccent
+Select("Scedilla");
+AddATT("Substitution", LatinROM, "locl", -1, "Scommaaccent");
+AddATT("Substitution", LatinAll, "ss01", -1, "Scommaaccent");
+Select("scedilla");
+AddATT("Substitution", LatinROM, "locl", -1, "scommaaccent");
+AddATT("Substitution", LatinAll, "ss01", -1, "scommaaccent");
+if(SelectIf("scedilla.sc") == 1)
+  AddATT("Substitution", LatinROM, "locl", -1, "scommaaccent.sc");
+  AddATT("Substitution", LatinAll, "ss01", -1, "scommaaccent.sc");
+endif
+
+# [Tt]cedilla -> [Tt]commaaccent
+Select("uni0162");
+AddATT("Substitution", LatinROM, "locl", -1, "uni021A");
+AddATT("Substitution", LatinAll, "ss01", -1, "uni021A");
+Select("uni0163");
+AddATT("Substitution", LatinROM, "locl", -1, "uni021B");
+AddATT("Substitution", LatinAll, "ss01", -1, "uni021B");
+if(SelectIf("uni0163.sc") == 1)
+  AddATT("Substitution", LatinROM, "locl", -1, "uni021B.sc");
+  AddATT("Substitution", LatinAll, "ss01", -1, "uni021B.sc");
+endif
+
+## Anchor Classes
+AddAnchorClass("top", "default", LatinAll, "mark", -1, "");
+AddAnchorClass("bot", "default", LatinAll, "mark", -1, "top");
