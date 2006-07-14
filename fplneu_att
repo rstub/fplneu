@@ -1,5 +1,5 @@
 #-*-Shell-script-*-
-#  Time-stamp: <2006-07-13 21:37:55 ralf> 
+#  Time-stamp: <2006-07-13 23:09:06 ralf> 
 # add ATT/OTL features to all fonts
 
 # most features get defined for these latin languages
@@ -77,5 +77,7 @@ if(SelectIf("uni0163.sc") == 1)
 endif
 
 ## Anchor Classes
+SetPref("PreferSpacingAccents",0);
 AddAnchorClass("top", "default", LatinAll, "mark", -1, "");
 AddAnchorClass("bot", "default", LatinAll, "mark", -1, "top");
+
