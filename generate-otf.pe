@@ -1,10 +1,10 @@
 #!/usr/bin/env fontforge
 Open($1)
-Reencode("unicode");
+Reencode("unicode")
 # get rid of ' Regular', if it exists in the fullname
-index=Strstr($fullname," Regular");
+index=Strstr($fullname," Regular")
 if(index > 0)
-    fullname=Strsub($fullname,0,index);
-    SetFontNames("","",fullname);
+    fullname=Strsub($fullname,0,index)
+    SetFontNames("","",fullname)
 endif
-Generate($1:r+".otf");
+Generate($1:r+".otf")

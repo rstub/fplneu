@@ -1,5 +1,11 @@
 #!/usr/bin/env fontforge
 Open($1)
-Reencode("unicode");
-ScaleToEm(2048);
-Generate($1:r+".ttf","",0x80);
+Reencode("unicode")
+# get rid of ' Regular', if it exists in the fullname
+index=Strstr($fullname," Regular")
+if(index > 0)
+    fullname=Strsub($fullname,0,index)
+    SetFontNames("","",fullname)
+endif
+ScaleToEm(2048)
+Generate($1:r+".ttf")

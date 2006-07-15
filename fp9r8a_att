@@ -1,202 +1,202 @@
 #-*-Shell-script-*-
-#  Time-stamp: <2006-07-14 19:34:32 ralf> 
+#  Time-stamp: <2006-07-15 15:54:56 ralf> 
 
 # poition combining accents such that they are centered above an 'o' 
 # if the mark feature is *not* used
 Select("o")
-combcenter=-Int(GlyphInfo("Width")/2); 
+combcenter=-Int(GlyphInfo("Width")/2) 
 
 # create combining accents
-Select("dotaccent");
-CopyReference();
-width=GlyphInfo("Width"); 
-bbox=GlyphInfo("BBox");
+Select("dotaccent")
+CopyReference()
+width=GlyphInfo("Width") 
+bbox=GlyphInfo("BBox")
 deltax=combcenter-Int((bbox[2]+bbox[0])/2)
 # tildecomb
-Select(0x0307);
-PasteWithOffset(deltax,0);
-AddAnchorPoint("top", "mark", combcenter, 535);
+Select(0x0307)
+PasteWithOffset(deltax,0)
+AddAnchorPoint("top", "mark", combcenter, 535)
 # tildecomblow
-Select(0x0323);
-PasteWithOffset(deltax,-700);
-AddAnchorPoint("bot", "mark", combcenter, 0);
+Select(0x0323)
+PasteWithOffset(deltax,-700)
+AddAnchorPoint("bot", "mark", combcenter, 0)
 
-Select("tilde");
-CopyReference();
-bbox=GlyphInfo("BBox");
+Select("tilde")
+CopyReference()
+bbox=GlyphInfo("BBox")
 deltax=combcenter-Int((bbox[2]+bbox[0])/2)
 # tildecomb
-Select(0x0303);
-PasteWithOffset(deltax,0);
-AddAnchorPoint("top", "mark", combcenter, 535);
+Select(0x0303)
+PasteWithOffset(deltax,0)
+AddAnchorPoint("top", "mark", combcenter, 535)
 # tildecomblow
-Select(0x0330);
-PasteWithOffset(deltax,-700);
-AddAnchorPoint("bot", "mark", combcenter, 0);
+Select(0x0330)
+PasteWithOffset(deltax,-700)
+AddAnchorPoint("bot", "mark", combcenter, 0)
 
-Select("macron");
-CopyReference();
-bbox=GlyphInfo("BBox");
+Select("macron")
+CopyReference()
+bbox=GlyphInfo("BBox")
 deltax=combcenter-Int((bbox[2]+bbox[0])/2)
 # other macron
-Select(0x02C9);
-Paste();
+Select(0x02C9)
+Paste()
 # macroncomb
-Select(0x0304);
-PasteWithOffset(deltax,0);
-AddAnchorPoint("top", "mark", combcenter, 535);
+Select(0x0304)
+PasteWithOffset(deltax,0)
+AddAnchorPoint("top", "mark", combcenter, 535)
 # macroncomblow
-Select(0x0331);
-PasteWithOffset(deltax,-700);
-AddAnchorPoint("bot", "mark", combcenter, 0);
+Select(0x0331)
+PasteWithOffset(deltax,-700)
+AddAnchorPoint("bot", "mark", combcenter, 0)
 
-Select("breve");
-CopyReference();
-bbox=GlyphInfo("BBox");
+Select("breve")
+CopyReference()
+bbox=GlyphInfo("BBox")
 deltax=combcenter-Int((bbox[2]+bbox[0])/2)
 # brevecomb
-Select(0x0306);
-PasteWithOffset(deltax,0);
-AddAnchorPoint("top", "mark", combcenter, 535);
+Select(0x0306)
+PasteWithOffset(deltax,0)
+AddAnchorPoint("top", "mark", combcenter, 535)
 # brevecombinverted
-Select(0x0311);
-PasteWithOffset(deltax,0);
-Rotate(180);
-AddAnchorPoint("top", "mark", combcenter, 535);
+Select(0x0311)
+PasteWithOffset(deltax,0)
+Rotate(180)
+AddAnchorPoint("top", "mark", combcenter, 535)
 # brevecomblow
-Select(0x032E);
-PasteWithOffset(deltax,-700);
-AddAnchorPoint("bot", "mark", combcenter, 0);
+Select(0x032E)
+PasteWithOffset(deltax,-700)
+AddAnchorPoint("bot", "mark", combcenter, 0)
 # brevecomblowinverted
-Select(0x032F);
-PasteWithOffset(deltax,-700);
-Rotate(180);
-AddAnchorPoint("bot", "mark", combcenter, 0);
+Select(0x032F)
+PasteWithOffset(deltax,-700)
+Rotate(180)
+AddAnchorPoint("bot", "mark", combcenter, 0)
 
 
 
 
 # anchor points
-Select("C");
-AddAnchorPoint("top", "basechar", 416, 750);
-AddAnchorPoint("bot", "basechar", 416, 0);
+Select("C")
+AddAnchorPoint("top", "basechar", 416, 750)
+AddAnchorPoint("bot", "basechar", 416, 0)
 
-Select("c");
-AddAnchorPoint("top", "basechar", 268, 535);
-AddAnchorPoint("bot", "basechar", 268, 0);
+Select("c")
+AddAnchorPoint("top", "basechar", 268, 535)
+AddAnchorPoint("bot", "basechar", 268, 0)
 
-Select("c.sc");
-AddAnchorPoint("top", "basechar", 351, 535);
-AddAnchorPoint("bot", "basechar", 352, 0);
+Select("c.sc")
+AddAnchorPoint("top", "basechar", 351, 535)
+AddAnchorPoint("bot", "basechar", 352, 0)
 
-Select("G");
-AddAnchorPoint("top", "basechar", 422, 750);
-AddAnchorPoint("bot", "basechar", 422, 0);
+Select("G")
+AddAnchorPoint("top", "basechar", 422, 750)
+AddAnchorPoint("bot", "basechar", 422, 0)
 
-Select("g");
-AddAnchorPoint("top", "basechar", 279,  535);
-AddAnchorPoint("bot", "basechar", 279, -283);
+Select("g")
+AddAnchorPoint("top", "basechar", 279,  535)
+AddAnchorPoint("bot", "basechar", 279, -283)
 
-Select("I");
-AddAnchorPoint("top", "basechar", 168, 730);
-SelectMore("Idotaccent");
+Select("I")
+AddAnchorPoint("top", "basechar", 168, 730)
+SelectMore("Idotaccent")
 foreach
-  AddAnchorPoint("bot", "basechar", 168, 0);
+  AddAnchorPoint("bot", "basechar", 168, 0)
 endloop
 
-Select("dotlessi");
-AddAnchorPoint("top", "basechar", 146, 535);
-SelectMore("i");
+Select("dotlessi")
+AddAnchorPoint("top", "basechar", 146, 535)
+SelectMore("i")
 foreach
-  AddAnchorPoint("bot", "basechar", 146, 0);
+  AddAnchorPoint("bot", "basechar", 146, 0)
 endloop
 
-SelectSingletons("L", "Lslash");
+SelectSingletons("L", "Lslash")
 foreach
-  AddAnchorPoint("top", "basechar", 168, 730);
-  AddAnchorPoint("bot", "basechar", 300, 0);
+  AddAnchorPoint("top", "basechar", 168, 730)
+  AddAnchorPoint("bot", "basechar", 300, 0)
 endloop
 
-SelectSingletons("l", "lslash");
+SelectSingletons("l", "lslash")
 foreach
-  AddAnchorPoint("top", "basechar", 146, 750);
-  AddAnchorPoint("bot", "basechar", 146, 0);
+  AddAnchorPoint("top", "basechar", 146, 750)
+  AddAnchorPoint("bot", "basechar", 146, 0)
 endloop
 
-Select("M");
-AddAnchorPoint("top", "basechar", 473, 730);
-AddAnchorPoint("bot", "basechar", 473, 0);
+Select("M")
+AddAnchorPoint("top", "basechar", 473, 730)
+AddAnchorPoint("bot", "basechar", 473, 0)
 
-Select("m");
-AddAnchorPoint("top", "basechar", 442, 535);
-AddAnchorPoint("bot", "basechar", 442, 0);
+Select("m")
+AddAnchorPoint("top", "basechar", 442, 535)
+AddAnchorPoint("bot", "basechar", 442, 0)
 
-Select("O");
-AddAnchorPoint("top", "basechar", 393, 750);
-AddAnchorPoint("bot", "basechar", 393, 0);
-Select("Oogonek");
-AddAnchorPoint("top", "basechar", 393, 750);
+Select("O")
+AddAnchorPoint("top", "basechar", 393, 750)
+AddAnchorPoint("bot", "basechar", 393, 0)
+Select("Oogonek")
+AddAnchorPoint("top", "basechar", 393, 750)
 
-Select("o");
-AddAnchorPoint("top", "basechar", 273, 535);
-AddAnchorPoint("bot", "basechar", 273, 0);
-Select("oogonek");
-AddAnchorPoint("top", "basechar", 273, 535);
+Select("o")
+AddAnchorPoint("top", "basechar", 273, 535)
+AddAnchorPoint("bot", "basechar", 273, 0)
+Select("oogonek")
+AddAnchorPoint("top", "basechar", 273, 535)
 
-Select("R");
-AddAnchorPoint("top", "basechar", 320, 730);
-AddAnchorPoint("bot", "basechar", 320, 0);
+Select("R")
+AddAnchorPoint("top", "basechar", 320, 730)
+AddAnchorPoint("bot", "basechar", 320, 0)
 
-Select("r");
-AddAnchorPoint("top", "basechar", 200, 535);
-AddAnchorPoint("bot", "basechar", 160, 0);
+Select("r")
+AddAnchorPoint("top", "basechar", 200, 535)
+AddAnchorPoint("bot", "basechar", 160, 0)
 
-Select("U");
-AddAnchorPoint("top", "basechar", 410, 730);
-AddAnchorPoint("bot", "basechar", 410, 0);
-Select("Uogonek");
-AddAnchorPoint("top", "basechar", 410, 730);
+Select("U")
+AddAnchorPoint("top", "basechar", 410, 730)
+AddAnchorPoint("bot", "basechar", 410, 0)
+Select("Uogonek")
+AddAnchorPoint("top", "basechar", 410, 730)
 
-Select("u");
-AddAnchorPoint("top", "basechar", 300, 535);
-AddAnchorPoint("bot", "basechar", 300, 0);
-Select("uogonek");
-AddAnchorPoint("top", "basechar", 300, 535);
+Select("u")
+AddAnchorPoint("top", "basechar", 300, 535)
+AddAnchorPoint("bot", "basechar", 300, 0)
+Select("uogonek")
+AddAnchorPoint("top", "basechar", 300, 535)
 
 # create glyphs
 # this should go into a common file
-# SelectSingletons("Cdotaccent", "cdotaccent");
-# SelectMoreSingletons("Gdotaccent", "gdotaccent");
-# SelectMoreSingletons("Itilde", "itilde");
-# SelectMoreSingletons("Utilde", "utilde");
-# SelectMoreSingletons("uni1E2C", "uni1E2D");
-# SelectMoreSingletons("uni1E74", "uni1E75");
-# BuildAccented();
-# SetGlyphColor(0xffff00); 
+# SelectSingletons("Cdotaccent", "cdotaccent")
+# SelectMoreSingletons("Gdotaccent", "gdotaccent")
+# SelectMoreSingletons("Itilde", "itilde")
+# SelectMoreSingletons("Utilde", "utilde")
+# SelectMoreSingletons("uni1E2C", "uni1E2D")
+# SelectMoreSingletons("uni1E74", "uni1E75")
+# BuildAccented()
+# SetGlyphColor(0xffff00) 
 
 # select latin glyphs
-# Select("A", "Z");
-# SelectMore("a", "z");
-# SelectMore(0x00c0, 0x024F);
-# SelectMore(0x1E00, 0x1EFF);
+# Select("A", "Z")
+# SelectMore("a", "z")
+# SelectMore(0x00c0, 0x024F)
+# SelectMore(0x1E00, 0x1EFF)
 
-# SelectAll();
+# SelectAll()
 
-# DefaultATT("aalt");
+# DefaultATT("aalt")
 # # lc -> sc
-# DefaultATT("smcp");
+# DefaultATT("smcp")
 # # uc -> sc
-# DefaultATT("c2sc");
+# DefaultATT("c2sc")
 
 # foreach
-#   RemoveATT("Position", "latn{dflt}", "rtbd");
-#   RemoveATT("Position", "latn{dflt}", "lfbd");
+#   RemoveATT("Position", "latn{dflt}", "rtbd")
+#   RemoveATT("Position", "latn{dflt}", "lfbd")
 # endloop
 
-#   glyphname=GlyphInfo("name");
+#   glyphname=GlyphInfo("name")
 #   if( SelectIf(glyphname+".sc") == 1)
-#       Select(glyphname);
-#       AddATT("Substitution", "latn{dflt}", "smcp", -1, glyphname+".sc");
+#       Select(glyphname)
+#       AddATT("Substitution", "latn{dflt}", "smcp", -1, glyphname+".sc")
 #   endif
 
 

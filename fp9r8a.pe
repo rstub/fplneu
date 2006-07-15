@@ -1,126 +1,126 @@
 #!/usr/bin/env fontforge
-# Time-stamp: <2006-07-15 15:45:30 ralf> 
+# Time-stamp: <2006-07-15 15:56:38 ralf> 
 # Copyright 2005, 2006 Ralf Stubner
 # See the file COPYING (GNU General Public License) for license
 # conditions. 
 
-Open("uplr8a.pfb");
-Reencode("unicode");
+Open("uplr8a.pfb")
+Reencode("unicode")
 # Names
-@fontname="FPLNeu-Regular";
-@fontfamily="FPL Neu";
-@fullname="FPL Neu Regular";
-@weight="Regular";
+@fontname="FPLNeu-Regular"
+@fontfamily="FPL Neu"
+@fullname="FPL Neu Regular"
+@weight="Regular"
 # common definitions abd commands
-Common();
+Common()
 
 # remove mu
-Select("mu");
-Clear();
+Select("mu")
+Clear()
 
 # ordmasculine, ordfeminine
-Select("macron");
-Copy();
-Select(0x2116);
-Paste();
-Scale(90,70);
-RoundToInt();
-Move(0,-200);
-Cut();
-Select("ordmasculine");
-SelectMore("ordfeminine");
-PasteInto();
+Select("macron")
+Copy()
+Select(0x2116)
+Paste()
+Scale(90,70)
+RoundToInt()
+Move(0,-200)
+Cut()
+Select("ordmasculine")
+SelectMore("ordfeminine")
+PasteInto()
 
 # asteriskmath
-Select("asterisk");
-Copy();
-Select(0x2217);
-Paste();
-Move(0,-250);
+Select("asterisk")
+Copy()
+Select(0x2217)
+Paste()
+Move(0,-250)
 
 # fix cacute
-Select("c");
-Copy();
-Select("cacute");
-CopyFgToBg();
-Paste();
-Select("acute");
-Copy();
-Select("cacute");
-PasteWithOffset(80,0);
+Select("c")
+Copy()
+Select("cacute")
+CopyFgToBg()
+Paste()
+Select("acute")
+Copy()
+Select("cacute")
+PasteWithOffset(80,0)
 
 # get new glyphs
 MergeFonts("regular-crp.sfd")
-MergeFonts("fp9r8a-fix.sfd");
-Select("uni0163.sc");
-SelectMore("q.sc");
-UnlinkReference();
-RemoveOverlap();
-Simplify();
-RoundToInt();
+MergeFonts("fp9r8a-fix.sfd")
+Select("uni0163.sc")
+SelectMore("q.sc")
+UnlinkReference()
+RemoveOverlap()
+Simplify()
+RoundToInt()
 # numero
-Select("ordmasculine");
-Copy();
-width_o=CharInfo("Width");
-Select(0x2116);
-width_N=CharInfo("Width");
-PasteWithOffset(width_N,0);
-SetWidth(width_N + width_o);
+Select("ordmasculine")
+Copy()
+width_o=CharInfo("Width")
+Select(0x2116)
+width_N=CharInfo("Width")
+PasteWithOffset(width_N,0)
+SetWidth(width_N + width_o)
 # mho
-Select(0x2126);
-Copy();
-Select(0x2127);
-Paste();
-Rotate(180);
+Select(0x2126)
+Copy()
+Select(0x2127)
+Paste()
+Rotate(180)
 
 # Germandblssmall
-Select("s.sc");
-width=CharInfo("Width");
-Copy();
-Select(0xe001);
-SetCharName("germandbls.sc",0);
-Paste();
-Move(width,0);
-PasteInto();
-Reencode("unicode");
+Select("s.sc")
+width=CharInfo("Width")
+Copy()
+Select(0xe001)
+SetCharName("germandbls.sc",0)
+Paste()
+Move(width,0)
+PasteInto()
+Reencode("unicode")
 
 # build numerator and denominator figures
-Select("zero", "nine");
-ii=0;
+Select("zero", "nine")
+ii=0
 foreach
   # preparation
-  figure=GlyphInfo("name");
-  Select(figure+".superior");
-  width=CharInfo("Width");
-  CopyReference();
+  figure=GlyphInfo("name")
+  Select(figure+".superior")
+  width=CharInfo("Width")
+  CopyReference()
   # numerator
-  Select(0xe020+ii);
-  PasteWithOffset(0,-147);
-  SetCharName(figure+".numerator",0);
-  SetWidth(width);
+  Select(0xe020+ii)
+  PasteWithOffset(0,-147)
+  SetCharName(figure+".numerator",0)
+  SetWidth(width)
   # denominator
-  Select(0xe030+ii);
-  PasteWithOffset(0,-423);
-  SetCharName(figure+".denominator",0);
-  SetWidth(width);
+  Select(0xe030+ii)
+  PasteWithOffset(0,-423)
+  SetCharName(figure+".denominator",0)
+  SetWidth(width)
   # finish
-  SelectFewer(0xe030+ii);
-  ii++;
+  SelectFewer(0xe030+ii)
+  ii++
 endloop
 
 # hinting
-fp9r8a_hint();
+fp9r8a_hint()
 
 # ATT/OTL
-fplneu_att();
-fp9r8a_att();
+fplneu_att()
+fp9r8a_att()
 
 # kerning
-RemoveAllKerns();
-MergeKern("fp9r8a-fix.afm");
+RemoveAllKerns()
+MergeKern("fp9r8a-fix.afm")
 
-Reencode("unicode");
-SetCharCnt(65536);
-Save("fp9r8a.sfd");
-Quit(0);
+Reencode("unicode")
+SetCharCnt(65536)
+Save("fp9r8a.sfd")
+Quit(0)
 
