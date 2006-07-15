@@ -1,27 +1,11 @@
 #!/usr/bin/env fontforge
-# Time-stamp: <2006-07-15 14:15:46 ralf> 
+# Time-stamp: <2006-07-15 15:48:49 ralf> 
 # Copyright 2005, 2006 Ralf Stubner
 # See the file COPYING (GNU General Public License) for license
 # conditions. 
 
-# copyright, registered, Pcircle
-Open("fp9r8a.sfd");
-Select("copyright");
-SelectMore("registered");
-SelectMore(0x2117);
-SelectMore("circle");
-Copy();
-Close();
-
 Open("uplri8a.pfb")
 Reencode("unicode");
-# copyright, registered, Pcircle (see at top)
-Select("copyright");
-SelectMore("registered");
-SelectMore(0x2117);
-SelectMore("circle");
-Paste();
-
 # Names
 @fontname="FPLNeu-Italic";
 @fontfamily="FPL Neu";
@@ -82,6 +66,7 @@ Paste();
 Move(0,-234);
 
 # get new glyphs
+MergeFonts("regular-crp.sfd")
 MergeFonts("fp9ri8a-fix.sfd");
 # numero
 Select("ordmasculine");

@@ -1,10 +1,12 @@
-# Time-stamp: <2006-07-15 13:58:37 ralf> 
+# Time-stamp: <2006-07-15 15:43:32 ralf> 
 # Copyright 2005, 2006 Ralf Stubner
 # See the file COPYING (GNU General Public License) for license conditions. 
 
 FONTFORGE=fontforge -script
 
-COMMON=Common AddGPL AddException fplneu_att
+COMMON=Common AddGPL AddException fplneu_att regular-crp.sfd bold-crp.sfd
+# regular-crp.sfd bold-crp.sfd aren't strictly COMMON, 
+# but it is easier that way ...
 
 PFB=fp9r8a.pfb fp9ri8a.pfb fp9b8a.pfb fp9bi8a.pfb
 AFM=$(patsubst %.pfb,%.afm,$(PFB))
@@ -26,13 +28,6 @@ all: type1 opentype truetype
 #       * a FF file with new/fixed hinting 
 #       * a FF file with new/fixed ATT/OTL tables
 #       * some general files
-#
-# Italic fonts also depend on:
-#	* the weight corresponding roman SFD file (circled characters)
-#
-%i8a.sfd: %i8a.pe  %i8a-fix.sfd %i8a-fix.afm %i8a_hint %i8a_att $(COMMON) %8a.sfd
-	$(FONTFORGE) $*i8a.pe
-
 %8a.sfd: %8a.pe  %8a-fix.sfd %8a-fix.afm %8a_hint %8a_att $(COMMON)
 	$(FONTFORGE) $*8a.pe
 
@@ -53,6 +48,11 @@ opentype: $(OTF)
 	$(FONTFORGE) generate-ttf.pe $*.sfd
 
 truetype: $(TTF)
+
+# fonts with copyright, registered, produced signes
+crp-fonts: regular-crp.pe bold-crp.pe
+	$(FONTFORGE) regular-crp.pe 
+	$(FONTFORGE) bold-crp.pe
 
 # check the Type1 fonts for some common errors
 check: type1
@@ -90,7 +90,7 @@ dist-otf: opentype
 	cp README.opentype dist-otf/README
 	(cd dist-otf; zip -r fplneu-otf.zip *)
 
-.PHONY: dist dist-otf check type1 opentype truetype
+.PHONY: dist dist-otf check type1 opentype truetype crp-fonts
 
 # don't delete intermediate sfd files
 .SECONDARY:

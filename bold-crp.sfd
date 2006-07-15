@@ -1,0 +1,183 @@
+SplineFontDB: 1.0
+FontName: bold-rcp
+FullName: bold-rcp
+FamilyName: bold-rcp
+Weight: Bold
+Copyright: Created by Ralf Stubner with FontForge 1.0 (http://fontforge.sf.net)
+Comments: 2006-7-15: Created.
+Version: 001.000
+ItalicAngle: 0
+UnderlinePosition: -100
+UnderlineWidth: 50
+Ascent: 800
+Descent: 200
+NeedsXUIDChange: 1
+UniqueID: -1
+OS2TypoAscent: 0
+OS2TypoAOffset: 1
+OS2TypoDescent: 0
+OS2TypoDOffset: 1
+OS2TypoLinegap: 0
+OS2WinAscent: 0
+OS2WinAOffset: 1
+OS2WinDescent: 0
+OS2WinDOffset: 1
+HheadAscent: 0
+HheadAOffset: 1
+HheadDescent: 0
+HheadDOffset: 1
+OS2Vendor: 'PfEd'
+Encoding: UnicodeBmp
+UnicodeInterp: none
+NameList: Adobe Glyph List
+DisplaySize: -24
+AntiAlias: 1
+FitToEm: 1
+WinInfo: 144 16 17
+BeginChars: 65536 4
+StartChar: circle
+Encoding: 9675 9675 0
+Width: 747
+Flags: HW
+TeX: 0 0 0 0
+HStem: -17 56<276 468> 639 56<280 471>
+VStem: 26 56<241.5 439.5> 664 56<240.5 436>
+Back
+378 695 m 0
+ 564 695 720 533 720 339 c 0
+ 720 142 564 -17 372 -17 c 0
+ 180 -17 26 142 26 341 c 0
+ 26 538 182 695 378 695 c 0
+377 639 m 0
+ 289 639 217 607 159 543 c 0
+ 110 488 82 415 82 342 c 0
+ 82 174 211 39 372 39 c 0
+ 533 39 664 174 664 340 c 0
+ 664 503 534 639 377 639 c 0
+EndSplineSet
+Fore
+378 695 m 0
+ 564 695 720 533 720 339 c 0
+ 720 142 564 -17 372 -17 c 0
+ 180 -17 26 142 26 341 c 0
+ 26 538 182 695 378 695 c 0
+377 639 m 0
+ 188.05 639 82 481.942 82 342 c 0
+ 82 174 211 39 372 39 c 0
+ 533 39 664 174 664 340 c 0
+ 664 503 534 639 377 639 c 0
+EndSplineSet
+Colour: ffff00
+EndChar
+StartChar: copyright
+Encoding: 169 169 1
+Width: 747
+VWidth: 728
+Flags: HW
+TeX: 0 0 0 0
+HStem: 129 38<321 437> 516 33<325.5 425.5>
+VStem: 157 88<278 407>
+Fore
+540 190 m 1
+ 527 161 l 1
+ 483 137 448 129 394 129 c 0
+ 248 129 157 212 157 344 c 0
+ 157 470 251 549 400 549 c 0
+ 451 549 484 543 538 521 c 1
+ 542 515 l 1
+ 536 492 534 481 528 425 c 1
+ 505 425 l 1
+ 502 475 l 1
+ 470 505 441 516 397 516 c 0
+ 304 516 245 453 245 352 c 0
+ 245 240 314 167 418 167 c 0
+ 456 167 494 177 533 197 c 1
+ 540 190 l 1
+EndSplineSet
+Refer: 0 9675 N 1 0 0 1 0 0 2
+EndChar
+StartChar: registered
+Encoding: 174 174 2
+Width: 747
+VWidth: 728
+Flags: HW
+TeX: 0 0 0 0
+HStem: 137 24<176 176 360 360> 511 29<336.5 436> 519 21<176 176>
+VStem: 226 83<219 506> 427 84<420 482.5>
+Fore
+423 349 m 1xd8
+ 530 187 l 2
+ 544 168 550 165 571 161 c 1
+ 571 137 l 1
+ 549 138 544 138 514 139 c 2
+ 461 137 l 1
+ 328 342 l 1
+ 332 353 l 1
+ 358 352 373 355 388 364 c 0
+ 412 378 427 404 427 436 c 0
+ 427 484 397 511 344 511 c 0xd8
+ 329 511 317 510 309 506 c 1
+ 309 219 l 2
+ 309 166 310 165 338 163 c 2
+ 360 161 l 1
+ 360 137 l 1
+ 288 139 288 139 268 139 c 0
+ 248 139 248 139 176 137 c 1
+ 176 161 l 1
+ 198 163 l 2
+ 226 165 226 166 226 219 c 2
+ 226 459 l 2
+ 226 511 225 515 198 517 c 2
+ 176 519 l 1
+ 176 540 l 1xb8
+ 265 538 265 539 281 539 c 0
+ 294 539 343 540 358 540 c 0
+ 378 541 392 540 399 540 c 0
+ 473 540 511 511 511 454 c 0
+ 511 429 502 407 485 389 c 0
+ 470 371 456 363 423 349 c 1xd8
+EndSplineSet
+Refer: 0 9675 N 1 0 0 1 0 0 2
+EndChar
+StartChar: uni2117
+Encoding: 8471 8471 3
+Width: 747
+VWidth: 728
+Flags: HW
+TeX: 0 0 0 0
+HStem: 137 26<213 213 374 402> 330 27<373.5 413> 511 29<374 429> 519 21<213 213>
+VStem: 263 83<219 506> 455 85<408.5 481.5>
+Fore
+373 331 m 1xec
+ 363 352 l 1
+ 369 358 l 1
+ 371 357 373 357 374 357 c 0
+ 389 354 390 354 394 354 c 0
+ 432 354 455 385 455 432 c 0
+ 455 485 430 511 382 511 c 0xec
+ 366 511 355 510 346 506 c 1
+ 346 219 l 2
+ 346 167 347 164 374 163 c 2
+ 402 161 l 1
+ 402 137 l 1
+ 323 139 323 139 305 139 c 0
+ 284 139 284 139 213 137 c 1
+ 213 161 l 1
+ 235 163 l 2
+ 262 165 263 166 263 219 c 2
+ 263 459 l 2
+ 263 511 261 515 235 517 c 2
+ 213 519 l 1
+ 213 540 l 1xdc
+ 302 538 302 539 315 539 c 0
+ 321 539 357 539 422 540 c 2
+ 429 540 l 2
+ 503 540 540 511 540 452 c 0
+ 540 381 484 327 407 327 c 0
+ 399 327 396 328 382 330 c 0
+ 380 330 380 330 373 331 c 1xec
+EndSplineSet
+Refer: 0 9675 N 1 0 0 1 0 0 2
+EndChar
+EndChars
+EndSplineFont

@@ -1,5 +1,5 @@
 #!/usr/bin/env fontforge
-# Time-stamp: <2006-07-15 14:04:15 ralf> 
+# Time-stamp: <2006-07-15 15:45:30 ralf> 
 # Copyright 2005, 2006 Ralf Stubner
 # See the file COPYING (GNU General Public License) for license
 # conditions. 
@@ -17,30 +17,6 @@ Common();
 # remove mu
 Select("mu");
 Clear();
-
-# copyright, registered, published
-Select("C");
-Copy();
-Select("copyright");
-Clear();
-Paste();
-Scale(59);
-RoundToInt();
-Select("R");
-Copy();
-Select("registered");
-Clear();
-Paste();
-Scale(59);
-Move(20,0);
-RoundToInt();
-Select("P");
-Copy();
-Select(0x2117);
-Paste();
-Scale(59);
-Move(80,0);
-RoundToInt();
 
 # ordmasculine, ordfeminine
 Select("macron");
@@ -74,6 +50,7 @@ Select("cacute");
 PasteWithOffset(80,0);
 
 # get new glyphs
+MergeFonts("regular-crp.sfd")
 MergeFonts("fp9r8a-fix.sfd");
 Select("uni0163.sc");
 SelectMore("q.sc");
@@ -95,14 +72,6 @@ Copy();
 Select(0x2127);
 Paste();
 Rotate(180);
-# finish copyright, registered, published
-Select("circle");
-Copy();
-Select("copyright");
-SelectMore("registered");
-SelectMore(0x2117);
-PasteInto();
-SetWidth(747);
 
 # Germandblssmall
 Select("s.sc");

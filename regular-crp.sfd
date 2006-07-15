@@ -1,0 +1,171 @@
+SplineFontDB: 1.0
+FontName: regular-crp
+FullName: regular-crp
+FamilyName: regular-crp
+Weight: Regular
+Copyright: Created by Ralf Stubner with FontForge 1.0 (http://fontforge.sf.net)
+Comments: 2006-7-15: Created.
+Version: 001.000
+ItalicAngle: 0
+UnderlinePosition: -100
+UnderlineWidth: 50
+Ascent: 800
+Descent: 200
+NeedsXUIDChange: 1
+UniqueID: -1
+OS2TypoAscent: 0
+OS2TypoAOffset: 1
+OS2TypoDescent: 0
+OS2TypoDOffset: 1
+OS2TypoLinegap: 0
+OS2WinAscent: 0
+OS2WinAOffset: 1
+OS2WinDescent: 0
+OS2WinDOffset: 1
+HheadAscent: 0
+HheadAOffset: 1
+HheadDescent: 0
+HheadDOffset: 1
+OS2Vendor: 'PfEd'
+Encoding: UnicodeBmp
+UnicodeInterp: none
+NameList: Adobe Glyph List
+DisplaySize: -24
+AntiAlias: 1
+FitToEm: 1
+WinInfo: 9648 16 17
+BeginChars: 65536 4
+StartChar: circle
+Encoding: 9675 9675 0
+Width: 747
+Flags: W
+TeX: 0 0 0 0
+HStem: -18 44<273.5 473> 662 44<275 474.5>
+VStem: 11 44<243 443.5> 692 44<245 443.5>
+Fore
+377 706 m 0
+ 572 706 736 542 736 345 c 0
+ 736 145 573 -18 373 -18 c 0
+ 174 -18 11 144 11 342 c 0
+ 11 545 173 706 377 706 c 0
+377 662 m 0
+ 197 662 55 521 55 343 c 0
+ 55 169 198 26 373 26 c 0
+ 548 26 692 169 692 344 c 0
+ 692 517 548 662 377 662 c 0
+EndSplineSet
+Colour: ffff00
+EndChar
+StartChar: copyright
+Encoding: 169 169 1
+Width: 747
+VWidth: 731
+Flags: HW
+TeX: 0 0 0 0
+HStem: 129 32<317.5 432.5> 535 25<336 418.5>
+VStem: 155 63<279.5 408.5> 504 18<446 488>
+Fore
+537 191 m 1
+ 521 161 l 1
+ 480 140 436 129 387 129 c 0
+ 248 129 155 216 155 343 c 0
+ 155 423 190 485 258 524 c 0
+ 297 547 346 560 397 560 c 0
+ 440 560 483 552 534 535 c 1
+ 525 496 523 475 522 446 c 1
+ 504 446 l 1
+ 504 488 l 2
+ 504 511 445 535 387 535 c 0
+ 285 535 218 463 218 354 c 0
+ 218 238 295 161 410 161 c 0
+ 455 161 495 173 532 197 c 1
+ 537 191 l 1
+EndSplineSet
+Refer: 0 9675 N 1 0 0 1 0 0 2
+EndChar
+StartChar: registered
+Encoding: 174 174 2
+Width: 747
+VWidth: 731
+Flags: HW
+TeX: 0 0 0 0
+HStem: 139 18<175 175 348 348 556 556> 527 22<337 387> 532 17<179 179>
+VStem: 233 56<212 520> 442 59<421.5 489.5>
+Fore
+289 520 m 1xd8
+ 289 212 l 2
+ 289 165 292 161 319 159 c 2
+ 348 157 l 1
+ 348 139 l 1
+ 313 141 291 141 261 141 c 0
+ 230 141 209 141 175 139 c 1
+ 175 157 l 1
+ 203 159 l 2
+ 230 161 233 165 233 212 c 2
+ 233 477 l 2
+ 233 523 230 528 203 530 c 2
+ 179 532 l 1
+ 179 549 l 1xb8
+ 261 547 261 548 281 548 c 0
+ 301 548 301 547 378 549 c 2
+ 387 549 l 2
+ 460 549 501 518 501 461 c 0
+ 501 427 485 397 454 375 c 0
+ 435 362 419 355 386 347 c 1
+ 520 173 l 2
+ 528 162 537 159 556 157 c 1
+ 556 139 l 1
+ 519 141 519 141 514 141 c 0
+ 507 141 501 141 474 139 c 1
+ 468 147 464 152 460 158 c 0
+ 457 162 453 167 450 171 c 2
+ 341 317 l 2
+ 336 324 334 327 326 336 c 0
+ 319 344 317 346 310 354 c 1
+ 314 361 l 1
+ 322 360 327 360 331 360 c 0
+ 399 360 442 394 442 449 c 0
+ 442 499 408 527 347 527 c 0
+ 327 527 309 525 289 520 c 1xd8
+EndSplineSet
+Refer: 0 9675 N 1 0 0 1 0 0 2
+EndChar
+StartChar: uni2117
+Encoding: 8471 8471 3
+Width: 747
+VWidth: 731
+Flags: HW
+TeX: 0 0 0 0
+HStem: 139 18<216 216 389 389> 332 19<393 443.5> 527 22<379 462.5> 532 17<217 217>
+VStem: 275 56<212 520> 487 59<415 486.5>
+Fore
+331 520 m 1xec
+ 331 212 l 2
+ 331 165 334 161 361 159 c 2
+ 389 157 l 1
+ 389 139 l 1
+ 354 141 333 141 303 141 c 0
+ 272 141 251 141 216 139 c 1
+ 216 157 l 1
+ 245 159 l 2
+ 272 161 275 165 275 212 c 2
+ 275 477 l 2
+ 275 521 270 528 244 530 c 2
+ 217 532 l 1
+ 217 549 l 1xdc
+ 311 547 311 548 324 548 c 0
+ 341 548 386 548 408 549 c 0
+ 416 550 422 549 425 549 c 0
+ 500 549 546 515 546 458 c 0
+ 546 387 484 332 403 332 c 0
+ 391 332 383 333 369 336 c 1
+ 363 357 l 1
+ 378 352 387 351 399 351 c 0
+ 451 351 487 388 487 442 c 0
+ 487 498 452 527 389 527 c 0
+ 369 527 352 525 331 520 c 1xec
+EndSplineSet
+Refer: 0 9675 N 1 0 0 1 0 0 2
+EndChar
+EndChars
+EndSplineFont

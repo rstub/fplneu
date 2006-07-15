@@ -1,0 +1,46 @@
+#!/usr/bin/env fontforge
+# Time-stamp: <2006-07-15 15:39:22 ralf> 
+# Copyright 2005, 2006 Ralf Stubner
+# See the file COPYING (GNU General Public License) for license
+# conditions. 
+
+# copy and scale C, P and R
+Open("uplr8a.pfb")
+SelectSingletons("C", "P", "R")
+Copy()
+
+Open("regular-crp.sfd")
+
+SelectSingletons("C", "P", "R")
+Paste()
+Scale(59)
+RoundToInt()
+AutoHint()
+
+# cut&paste to right position
+Select("C")
+Cut()
+Select("copyright")
+Paste()
+
+Select("R")
+Cut()
+Select("registered")
+Paste()
+Move(20,0)
+
+Select("P")
+Cut()
+Select(0x2117)
+Paste()
+Move(80,0)
+
+Select("circle")
+CopyReference()
+Select("copyright")
+SelectMore("registered")
+SelectMore(0x2117)
+PasteInto()
+SetWidth(747)
+
+Save("regular-crp.sfd")
