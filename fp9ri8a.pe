@@ -1,5 +1,5 @@
 #!/usr/bin/env fontforge
-# Time-stamp: <2006-06-25 18:58:18 ralf> 
+# Time-stamp: <2006-07-15 14:15:46 ralf> 
 # Copyright 2005, 2006 Ralf Stubner
 # See the file COPYING (GNU General Public License) for license
 # conditions. 
@@ -15,70 +15,27 @@ Close();
 
 Open("uplri8a.pfb")
 Reencode("unicode");
-# proper setup with names etc
-fontname="FPLNeu-Italic";
-fontfamily="FPL Neu";
-fullname="FPL Neu Italic";
-copyright=$copyright+", Copyright 2000, 2002 Diego Puga, Copyright 2004--2006 Ralf Stubner.";
-copyright=AddGPL(copyright);
-copyright=AddException(copyright);
-fontversion=Version();
-
-SetFontNames(fontname,fontfamily,fullname,"",copyright,fontversion);
-# No UniqueID (needs recent ff to work properly)
-SetUniqueID(-1);
-# use OtherSubrs from URW (needs recent ff to work properly)
-ReadOtherSubrsFile("URW-OtherSubrs.ps");
-
-# delete characters with ogonek, at
-# onesuperior, twosuperior, threesuperior
-Select("Aogonek");
-SelectMore("aogonek");
-SelectMore("Eogonek");
-SelectMore("eogonek");
-SelectMore("Iogonek");
-SelectMore("iogonek");
-SelectMore("Uogonek");
-SelectMore("uogonek");
-SelectMore("ogonek");
-SelectMore("at");
-SelectMore("onesuperior");
-SelectMore("twosuperior");
-SelectMore("threesuperior"); 
-Clear();
-
-# move Delta and rename it to uni2206 
-Select("Delta");
-SetUnicodeValue(0x2206);
-
-# move mu and rename it to uni00B5
-Select("mu");
-SetUnicodeValue(0x00B5);
-
-# rename paragraph
-Select("paragraph");
-SetUnicodeValue(0xe015);
-SetCharName("paragraph.alt1",0);
-Reencode("unicode");
-
-# IJ,ij
-Select("IJ","ij");
-BuildComposite();
-UnlinkReference();
-
 # copyright, registered, Pcircle (see at top)
 Select("copyright");
 SelectMore("registered");
 SelectMore(0x2117);
 SelectMore("circle");
 Paste();
-# shift [Tt]commaacent
-Select("Tcommaaccent");
-SetUnicodeValue(0x021a);
-Select("tcommaaccent");
-SetUnicodeValue(0x021b);
+
+# Names
+@fontname="FPLNeu-Italic";
+@fontfamily="FPL Neu";
+@fullname="FPL Neu Italic";
+@weight="Regular";
+# common definitions abd commands
+Common();
+
+# move mu and rename it to uni00B5
+Select("mu");
+SetUnicodeValue(0x00B5);
 Reencode("unicode");
-# build [Tt]cedilla
+
+# [Tt]cedilla
 # automatism doesn't work, do it by hand
 Select("T");
 Copy();
@@ -104,37 +61,6 @@ RemoveOverlap();
 Simplify();
 RoundToInt();
 
-# naming of [Tt]cedilla and [Tt]commaacent
-# The AGL names would be [Tt]commaacent for [Tt]cedilla and uni021[ab]
-# for [Tt]commaacent. We try to avoid this mess by using uni016[23]
-# and uni021[ab].
-Select(0x0162);
-SetCharName("uni0162");
-Select(0x0163);
-SetCharName("uni0163");
-Reencode("unicode");
-
-# cwm
-Select(0x200C);
-SetWidth(0);
-
-# centigrade
-Select(0x2103);
-BuildComposite();
-UnlinkReference();
-
-# nbspace
-Select("space");
-width=CharInfo("Width");
-Select(0x00A0);
-SetWidth(width);
-
-# softhyphen
-Select("hyphen");
-Copy();
-Select(0x00AD);
-Paste();
-
 # ordmasculine, ordfeminine
 Select("macron");
 Copy();
@@ -155,47 +81,6 @@ Select(0x2217);
 Paste();
 Move(0,-234);
 
-# new dashes
-Select("endash");
-Copy();
-# threequartersemdash
-Select(0xf6de);
-SetCharName("threequartersemdash",0);
-Paste();
-Move(250,0);
-PasteInto();
-RemoveOverlap();
-Simplify();
-Reencode("unicode");
-# twelveudash
-Select(0xe014);
-SetCharName("twelveudash",0);
-Paste();
-Move(166,0);
-PasteInto();
-RemoveOverlap();
-Simplify();
-Reencode("unicode");
-
-# Germandbls
-Select("S");
-width=CharInfo("Width");
-Copy();
-Select(0xe013);
-SetCharName("germandbls.cap",0);
-Paste();
-Move(width-60,0);
-PasteInto();
-Reencode("unicode");
-# dblverticalbar
-Select("bar");
-width=CharInfo("Width");
-Copy();
-Select(0x2016);
-Paste();
-Move(width-400,0);
-PasteInto();
-
 # get new glyphs
 MergeFonts("fp9ri8a-fix.sfd");
 # numero
@@ -212,10 +97,6 @@ Copy();
 Select(0x2127);
 Paste();
 Rotate(180);
-
-# add kerning
-RemoveAllKerns();
-MergeKern("fp9ri8a-fix.afm");
 
 # build numerator and denominator figures
 Select("zero", "nine");
@@ -247,6 +128,10 @@ fp9ri8a_hint();
 # ATT/OTL
 fplneu_att();
 #fp9ri8a_att();
+
+# kerning
+RemoveAllKerns();
+MergeKern("fp9ri8a-fix.afm");
 
 Reencode("unicode");
 SetCharCnt(65536);

@@ -1,10 +1,10 @@
-# Time-stamp: <2006-07-12 21:45:10 ralf> 
+# Time-stamp: <2006-07-15 13:58:37 ralf> 
 # Copyright 2005, 2006 Ralf Stubner
 # See the file COPYING (GNU General Public License) for license conditions. 
 
 FONTFORGE=fontforge -script
 
-COMMON=AddGPL AddException Version fplneu_att
+COMMON=Common AddGPL AddException fplneu_att
 
 PFB=fp9r8a.pfb fp9ri8a.pfb fp9b8a.pfb fp9bi8a.pfb
 AFM=$(patsubst %.pfb,%.afm,$(PFB))
