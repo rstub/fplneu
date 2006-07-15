@@ -1,5 +1,5 @@
 #!/usr/bin/env fontforge
-# Time-stamp: <2006-07-15 15:56:38 ralf> 
+# Time-stamp: <2006-07-15 16:20:45 ralf> 
 # Copyright 2005, 2006 Ralf Stubner
 # See the file COPYING (GNU General Public License) for license
 # conditions. 
@@ -61,9 +61,9 @@ RoundToInt()
 # numero
 Select("ordmasculine")
 Copy()
-width_o=CharInfo("Width")
+width_o=GlyphInfo("Width")
 Select(0x2116)
-width_N=CharInfo("Width")
+width_N=GlyphInfo("Width")
 PasteWithOffset(width_N,0)
 SetWidth(width_N + width_o)
 # mho
@@ -75,10 +75,10 @@ Rotate(180)
 
 # Germandblssmall
 Select("s.sc")
-width=CharInfo("Width")
+width=GlyphInfo("Width")
 Copy()
 Select(0xe001)
-SetCharName("germandbls.sc",0)
+SetGlyphName("germandbls.sc",0)
 Paste()
 Move(width,0)
 PasteInto()
@@ -91,17 +91,17 @@ foreach
   # preparation
   figure=GlyphInfo("name")
   Select(figure+".superior")
-  width=CharInfo("Width")
+  width=GlyphInfo("Width")
   CopyReference()
   # numerator
   Select(0xe020+ii)
   PasteWithOffset(0,-147)
-  SetCharName(figure+".numerator",0)
+  SetGlyphName(figure+".numerator",0)
   SetWidth(width)
   # denominator
   Select(0xe030+ii)
   PasteWithOffset(0,-423)
-  SetCharName(figure+".denominator",0)
+  SetGlyphName(figure+".denominator",0)
   SetWidth(width)
   # finish
   SelectFewer(0xe030+ii)

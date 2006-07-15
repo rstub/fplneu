@@ -82,6 +82,7 @@ Fore
  537 191 l 1
 EndSplineSet
 Refer: 0 9675 N 1 0 0 1 0 0 2
+Colour: ffffff
 EndChar
 StartChar: registered
 Encoding: 174 174 2
@@ -129,6 +130,7 @@ Fore
  327 527 309 525 289 520 c 1xd8
 EndSplineSet
 Refer: 0 9675 N 1 0 0 1 0 0 2
+Colour: ffffff
 EndChar
 StartChar: uni2117
 Encoding: 8471 8471 3
@@ -166,6 +168,7 @@ Fore
  369 527 352 525 331 520 c 1xec
 EndSplineSet
 Refer: 0 9675 N 1 0 0 1 0 0 2
+Colour: ffff00
 EndChar
 EndChars
 EndSplineFont

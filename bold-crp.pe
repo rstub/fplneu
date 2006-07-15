@@ -1,5 +1,5 @@
 #!/usr/bin/env fontforge
-# Time-stamp: <2006-07-15 15:57:10 ralf> 
+# Time-stamp: <2006-07-15 20:08:42 ralf> 
 # Copyright 2005, 2006 Ralf Stubner
 # See the file COPYING (GNU General Public License) for license
 # conditions. 
@@ -23,17 +23,20 @@ Cut()
 Select("copyright")
 Paste()
 Move(-20,0)
+SetGlyphColor(0xffffff) 
 
 Select("R")
 Cut()
 Select("registered")
 Paste()
+SetGlyphColor(0xffffff) 
 
 Select("P")
 Cut()
 Select(0x2117)
 Paste()
 Move(60,0)
+SetGlyphColor(0xffff00) 
 
 Select("circle")
 CopyReference()

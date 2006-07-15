@@ -1,10 +1,10 @@
-# Time-stamp: <2006-07-15 15:43:32 ralf> 
+# Time-stamp: <2006-07-15 19:09:59 ralf> 
 # Copyright 2005, 2006 Ralf Stubner
 # See the file COPYING (GNU General Public License) for license conditions. 
 
 FONTFORGE=fontforge -script
 
-COMMON=Common AddGPL AddException fplneu_att regular-crp.sfd bold-crp.sfd
+COMMON=Common AddGPL AddException fplneu_att CombiningMarks regular-crp.sfd bold-crp.sfd
 # regular-crp.sfd bold-crp.sfd aren't strictly COMMON, 
 # but it is easier that way ...
 
