@@ -1,0 +1,72 @@
+#-*-Shell-script-*-
+#  Time-stamp: <2006-07-18 00:26:41 ralf> 
+
+# poition combining accents such that they are centered above an 'o' 
+# if the mark feature is *not* used
+Select("o")
+bbox=GlyphInfo("BBox")
+width=GlyphInfo("Width")
+# the optical center of all accents should go through this point 
+# with slope $italicangle
+@combcenterx=Int((bbox[2]+bbox[0])/2-width)
+@combcentery=Int((bbox[3]+bbox[1])/2)
+# but for shifting accents we need this value
+@combcenter=-Int(width/2)
+
+# top anchors are positioned at this height
+@topheight=Int(bbox[3]+20)
+@botheight=Int(bbox[1]-20)
+
+BuildMark("grave","top",0x0300)
+BuildMark("grave","bot",0x0316)
+
+BuildMark("acute","top",0x0301)
+BuildMark("acute","bot",0x0317)
+
+BuildMark("circumflex","top",0x0302)
+BuildMark("circumflex","bot",0x032D)
+
+BuildMark("tilde","top",0x0303)
+BuildMark("tilde","bot",0x0330)
+
+BuildMark("macron","top",0x0304)
+BuildMark("macron","bot",0x0331)
+# there is an other macron
+Select(0x02C9)
+Paste()
+
+BuildMark("breve","top",0x0306)
+BuildMark("breve","bot",0x032E)
+# BuildMark("breve","top",0x0311)
+# Rotate(180)
+# BuildMark("breve","bot",0x032F)
+# Rotate(180)
+
+BuildMark("dotaccent","top",0x0307)
+BuildMark("dotaccent","bot",0x0323)
+
+BuildMark("dieresis","top",0x0308)
+BuildMark("dieresis","bot",0x0324)
+
+BuildMark("ring","top",0x030A)
+BuildMark("ring","bot",0x0325)
+
+BuildMark("hungarumlaut","top",0x030B)
+
+BuildMark("caron","top",0x030C)
+BuildMark("caron","bot",0x032C)
+
+Select("commaaccent")
+CopyReference()
+deltax=@combcenter-Int(GlyphInfo("Width")/2)
+# comb low
+Select(0x0326)
+PasteWithOffset(deltax,0)
+
+Select("cedilla")
+CopyReference()
+deltax=@combcenter-Int(GlyphInfo("Width")/2)
+# comb low
+Select(0x0327)
+PasteWithOffset(deltax-34,10)
+

@@ -1,13 +1,6 @@
 #-*-Shell-script-*-
-#  Time-stamp: <2006-07-15 22:41:26 ralf> 
+#  Time-stamp: <2006-07-18 00:32:03 ralf> 
 
-# poition combining accents such that they are centered above an 'o' 
-# if the mark feature is *not* used
-Select("o")
-@combcenter=-Int(GlyphInfo("Width")/2) 
-@topheight=510
-@botheight=0
-@lowshift=-700
 
 CombiningMarks()
 
@@ -72,11 +65,11 @@ AddAnchorPoint("bot", "basechar", 393, @botheight)
 Select("Oogonek")
 AddAnchorPoint("top", "basechar", 393, 750)
 
-Select("o")
-AddAnchorPoint("top", "basechar", 273, @topheight)
-AddAnchorPoint("bot", "basechar", 273, @botheight)
-Select("oogonek")
-AddAnchorPoint("top", "basechar", 273, @topheight)
+# Select("o")
+# AddAnchorPoint("top", "basechar", 273, @topheight)
+# AddAnchorPoint("bot", "basechar", 273, @botheight)
+# Select("oogonek")
+# AddAnchorPoint("top", "basechar", 273, @topheight)
 
 Select("R")
 AddAnchorPoint("top", "basechar", 320, 730)

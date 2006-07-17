@@ -1,0 +1,13 @@
+#-*-Shell-script-*-
+#  Time-stamp: <2006-07-17 23:46:00 ralf> 
+
+# poition combining accents such that they are centered above an 'o' 
+# if the mark feature is *not* used
+# Select("o")
+# @combcenter=-Int(GlyphInfo("Width")/2) 
+# @combcenterheight=0 #270
+# @topheight=510
+# @botheight=0
+# @lowshift=-700
+
+CombiningMarks()

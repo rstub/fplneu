@@ -1,0 +1,34 @@
+#-*-Shell-script-*-
+#  Time-stamp: <2006-07-18 00:36:32 ralf> 
+
+Select($1)
+CopyReference()
+
+width=GlyphInfo("Width")
+bbox=GlyphInfo("BBox")
+deltax=@combcenter-Int(width/2)
+if( $2 == "top" )
+    deltay=0
+elseif( $2 == "bot" )  
+    deltay= -2*(bbox[1]-@combcentery)-(bbox[3]-bbox[1])
+    deltax -= Int(deltay * Tan($italicangle*3.14159265359/180))
+else
+    deltay=0
+endif
+
+Select($3)
+PasteWithOffset(deltax,deltay)
+
+if( $2 == "top" )
+    tempx=Int(@combcenterx-(@topheight-@combcentery)*Tan($italicangle*3.14159265359/180))
+    AddAnchorPoint("top", "mark", tempx, @topheight)
+    AddAnchorPoint("topmark", "mark", tempx, @topheight)
+    tempy=Int(bbox[3]+(bbox[1]-@topheight))
+    tempx=Int(@combcenterx-(tempy-@combcentery)*Tan($italicangle*3.14159265359/180))
+    AddAnchorPoint("topmark", "basemark", tempx, tempy)
+elseif( $2 == "bot" )  
+    tempx=Int(@combcenterx-(@botheight-@combcentery)*Tan($italicangle*3.14159265359/180))
+    AddAnchorPoint("bot", "mark", tempx, @botheight)
+else
+  #
+endif
