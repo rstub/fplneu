@@ -1,6 +1,21 @@
 #-*-Shell-script-*-
-#  Time-stamp: <2006-07-18 00:32:03 ralf> 
+#  Time-stamp: <2006-07-19 23:05:28 ralf> 
 
+# poition combining accents such that they are centered above an 'o' 
+# if the mark feature is *not* used
+Select("o")
+bbox=GlyphInfo("BBox")
+width=GlyphInfo("Width")
+# the optical center of all accents should go through this point 
+# with slope $italicangle
+@combcenterx=Int((bbox[2]+bbox[0])/2-width)
+@combcentery=Int((bbox[3]+bbox[1])/2)
+# but for shifting accents we need this value
+@combcenter=-Int(width/2)
+
+# top anchors are positioned at this height
+@topheight=Int(bbox[3]+20)
+@botheight=Int(bbox[1]-20)
 
 CombiningMarks()
 

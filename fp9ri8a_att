@@ -1,13 +1,51 @@
 #-*-Shell-script-*-
-#  Time-stamp: <2006-07-17 23:45:32 ralf> 
+#  Time-stamp: <2006-07-20 00:55:08 ralf> 
 
 # poition combining accents such that they are centered above an 'o' 
 # if the mark feature is *not* used
-# Select("o")
-# @combcenter=-Int(GlyphInfo("Width")/2) 
-# @combcenterheight=270
-# @topheight=510
-# @botheight=0
-# @lowshift=-700
+Select("o")
+bbox=GlyphInfo("BBox")
+width=GlyphInfo("Width")
+# the optical center of all accents should go through this point 
+# with slope $italicangle
+@combcenterx=Int((bbox[2]+bbox[0])/2-width)
+@combcentery=Int((bbox[3]+bbox[1])/2)
+# but for shifting accents we need this value
+@combcenter=-Int(width/2)
+
+# top anchors are positioned at this height
+@topheight=Int(bbox[3]+20)
+@botheight=Int(bbox[1]-20)
+
+@oheight=bbox[3]
+@odepth=bbox[1]
+
+Select("O")
+bbox=GlyphInfo("BBox")
+@Oheight=bbox[3]
+
+Select("l")
+bbox=GlyphInfo("BBox")
+@lheight=bbox[3]
 
 CombiningMarks()
+
+Select("A")
+AddBaseAnchor("bot", 40, 0)
+SelectMore("Aogonek")
+AddBaseAnchor("top", 90, 0)
+
+Select("a")
+AddBaseAnchor("bot")
+SelectMore("aogonek")
+AddBaseAnchor("top",  15, 0)
+
+Select("U")
+AddBaseAnchor("bot")
+SelectMore("Uogonek")
+AddBaseAnchor("top",-70,0)
+
+Select("u")
+AddBaseAnchor("bot")
+SelectMore("uogonek")
+AddBaseAnchor("top")

@@ -1,17 +1,27 @@
 #-*-Shell-script-*-
-#  Time-stamp: <2006-07-18 00:36:32 ralf> 
+#  Time-stamp: <2006-07-20 00:12:26 ralf> 
+
+# arguments:
+#       $1 initial spacing accent
+#       $2 position ("top" or "bot")
+#       $3 resulting combining accent
+#       $4 flags: 
+#             0x1: rotate 180 degrees
 
 Select($1)
 CopyReference()
-
 width=GlyphInfo("Width")
 bbox=GlyphInfo("BBox")
 deltax=@combcenter-Int(width/2)
+
+# not really the slope ...
+slope=-Tan($italicangle*3.14159265359/180) 
+
 if( $2 == "top" )
     deltay=0
 elseif( $2 == "bot" )  
     deltay= -2*(bbox[1]-@combcentery)-(bbox[3]-bbox[1])
-    deltax -= Int(deltay * Tan($italicangle*3.14159265359/180))
+    deltax += Int(deltay * slope)
 else
     deltay=0
 endif
@@ -19,15 +29,21 @@ endif
 Select($3)
 PasteWithOffset(deltax,deltay)
 
+if($argc == 5)
+    if($4 && 0x1)
+        Rotate(180)
+    endif
+endif
+
 if( $2 == "top" )
-    tempx=Int(@combcenterx-(@topheight-@combcentery)*Tan($italicangle*3.14159265359/180))
-    AddAnchorPoint("top", "mark", tempx, @topheight)
+    tempx=Int(@combcenterx + (@topheight-@combcentery) * slope)
+    AddAnchorPoint("top",     "mark", tempx, @topheight)
     AddAnchorPoint("topmark", "mark", tempx, @topheight)
     tempy=Int(bbox[3]+(bbox[1]-@topheight))
-    tempx=Int(@combcenterx-(tempy-@combcentery)*Tan($italicangle*3.14159265359/180))
+    tempx=Int(@combcenterx + (tempy-@combcentery) * slope)
     AddAnchorPoint("topmark", "basemark", tempx, tempy)
 elseif( $2 == "bot" )  
-    tempx=Int(@combcenterx-(@botheight-@combcentery)*Tan($italicangle*3.14159265359/180))
+    tempx=Int(@combcenterx + (@botheight-@combcentery) * slope)
     AddAnchorPoint("bot", "mark", tempx, @botheight)
 else
   #

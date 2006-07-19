@@ -1,0 +1,49 @@
+#-*-Shell-script-*-
+#  Time-stamp: <2006-07-20 00:40:10 ralf> 
+
+# adds anchor to all selected glyph
+# arguments: 
+#        $1: position
+#     $2,$3: optional x- and y-shift
+
+
+foreach
+
+width=GlyphInfo("Width")
+bbox=GlyphInfo("BBox")
+
+centerx=Int((bbox[2]+bbox[0])/2)
+centery=Int((bbox[3]+bbox[1])/2)
+
+# not really the slope ...
+slope=-Tan($italicangle*3.14159265359/180) 
+
+
+if($1 == "top")
+    if(bbox[3] > @Oheight) # lc with ascender
+        anchory=@lheight + 20 
+    elseif(bbox[3] > @oheight) # uc
+        anchory=@Oheight + 20
+    else
+        anchory=@topheight
+    endif
+elseif($1 == "bot")
+    if(bbox[1] < @odepth)
+        anchory=bbox[1] - 20 
+    else
+        anchory=@botheight
+    endif
+else
+    anchory=0
+endif
+
+anchorx=Int(centerx + (anchory-centery) * slope)
+
+if($argc == 4)
+    anchorx += $2
+    anchory += $3
+endif
+
+AddAnchorPoint($1, "basechar", Int(anchorx), Int(anchory))
+
+endloop

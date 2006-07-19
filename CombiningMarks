@@ -1,21 +1,5 @@
 #-*-Shell-script-*-
-#  Time-stamp: <2006-07-18 00:26:41 ralf> 
-
-# poition combining accents such that they are centered above an 'o' 
-# if the mark feature is *not* used
-Select("o")
-bbox=GlyphInfo("BBox")
-width=GlyphInfo("Width")
-# the optical center of all accents should go through this point 
-# with slope $italicangle
-@combcenterx=Int((bbox[2]+bbox[0])/2-width)
-@combcentery=Int((bbox[3]+bbox[1])/2)
-# but for shifting accents we need this value
-@combcenter=-Int(width/2)
-
-# top anchors are positioned at this height
-@topheight=Int(bbox[3]+20)
-@botheight=Int(bbox[1]-20)
+#  Time-stamp: <2006-07-20 00:10:06 ralf> 
 
 BuildMark("grave","top",0x0300)
 BuildMark("grave","bot",0x0316)
@@ -37,10 +21,9 @@ Paste()
 
 BuildMark("breve","top",0x0306)
 BuildMark("breve","bot",0x032E)
-# BuildMark("breve","top",0x0311)
-# Rotate(180)
-# BuildMark("breve","bot",0x032F)
-# Rotate(180)
+# rotated version
+BuildMark("breve","top",0x0311, 0x1)
+BuildMark("breve","bot",0x032F, 0x1)
 
 BuildMark("dotaccent","top",0x0307)
 BuildMark("dotaccent","bot",0x0323)
