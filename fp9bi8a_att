@@ -1,5 +1,5 @@
 #-*-Shell-script-*-
-#  Time-stamp: <2006-07-20 00:05:59 ralf> 
+#  Time-stamp: <2006-07-20 10:47:01 ralf> 
 
 # poition combining accents such that they are centered above an 'o' 
 # if the mark feature is *not* used
@@ -19,19 +19,14 @@ width=GlyphInfo("Width")
 
 # correct some accents before building combining marks
 Select("ring")
-Move(-150,0)
-SetWidth(333)
-
-SelectSingletons("grave", "acute", "circumflex", "tilde", "dotaccent", "dieresis")
-Move(-20,0)
-SetWidth(333)
-
-SelectSingletons("macron", "breve", "caron")
-Move(-10,0)
-SetWidth(333)
-
-SelectSingletons("hungarumlaut")
-Move(87,0)
+Move(-145,0)
 SetWidth(333)
 
 CombiningMarks()
+
+Select(0x0300,0x0303, 0x0307,0x0308)
+MoveReference(-30, 0, "grave", "acute", "circumflex", "tilde", "dotaccent", "dieresis")
+SelectSingletons(0x0304, 0x0306, 0x030C, 0x0311)
+MoveReference(-20, 0, "macron", "breve", "caron")
+Select(0x030B)
+MoveReference( 87,  0, "hungarumlaut")

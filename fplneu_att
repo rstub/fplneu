@@ -1,5 +1,5 @@
 #-*-Shell-script-*-
-#  Time-stamp: <2006-07-15 16:19:36 ralf> 
+#  Time-stamp: <2006-07-22 22:54:11 ralf> 
 # add ATT/OTL features to all fonts
 
 # onum, sups, subs, numr, dnom, and caps for figures
@@ -44,6 +44,10 @@ Select("dotlessi")
 AddATT("Substitution", "latn{"+@LatinAll+"}", "smcp", -1, "i.sc")
 # diagonal fractions
 DefaultATT("frac")
+
+# f with hook -> florin
+Select("uni0192")
+AddATT("Substitution", "latn{"+@LatinAll+"}", "salt", -1, "florin.currency")
 
 # substitutions for Romanian
 # [Ss]cedilla -> [Ss]commaaccent

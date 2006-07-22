@@ -1,23 +1,28 @@
 #-*-Shell-script-*-
-#  Time-stamp: <2006-07-20 00:40:10 ralf> 
+#  Time-stamp: <2006-07-20 10:08:33 ralf> 
 
-# adds anchor to all selected glyph
+# adds anchor to all selected glyph based on the first glyph
+
 # arguments: 
 #        $1: position
 #     $2,$3: optional x- and y-shift
 
+setup=1
 
 foreach
 
-width=GlyphInfo("Width")
-bbox=GlyphInfo("BBox")
+if(setup)
+    width=GlyphInfo("Width")
+    bbox=GlyphInfo("BBox")
 
-centerx=Int((bbox[2]+bbox[0])/2)
-centery=Int((bbox[3]+bbox[1])/2)
+    centerx=Int((bbox[2]+bbox[0])/2)
+    centery=Int((bbox[3]+bbox[1])/2)
 
-# not really the slope ...
-slope=-Tan($italicangle*3.14159265359/180) 
+    # not really the slope ...
+    slope=-Tan($italicangle*3.14159265359/180) 
 
+    setup=0
+endif
 
 if($1 == "top")
     if(bbox[3] > @Oheight) # lc with ascender

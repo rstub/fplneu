@@ -1,5 +1,5 @@
 #-*-Shell-script-*-
-#  Time-stamp: <2006-07-20 00:12:26 ralf> 
+#  Time-stamp: <2006-07-20 10:27:28 ralf> 
 
 # arguments:
 #       $1 initial spacing accent
@@ -36,14 +36,14 @@ if($argc == 5)
 endif
 
 if( $2 == "top" )
-    tempx=Int(@combcenterx + (@topheight-@combcentery) * slope)
+    tempx=Int(@combcenter + (@topheight-@combcentery) * slope)
     AddAnchorPoint("top",     "mark", tempx, @topheight)
     AddAnchorPoint("topmark", "mark", tempx, @topheight)
     tempy=Int(bbox[3]+(bbox[1]-@topheight))
-    tempx=Int(@combcenterx + (tempy-@combcentery) * slope)
+    tempx=Int(@combcenter + (tempy-@combcentery) * slope)
     AddAnchorPoint("topmark", "basemark", tempx, tempy)
 elseif( $2 == "bot" )  
-    tempx=Int(@combcenterx + (@botheight-@combcentery) * slope)
+    tempx=Int(@combcenter + (@botheight-@combcentery) * slope)
     AddAnchorPoint("bot", "mark", tempx, @botheight)
 else
   #

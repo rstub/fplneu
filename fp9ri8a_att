@@ -1,5 +1,5 @@
 #-*-Shell-script-*-
-#  Time-stamp: <2006-07-20 00:55:08 ralf> 
+#  Time-stamp: <2006-07-20 10:33:56 ralf> 
 
 # poition combining accents such that they are centered above an 'o' 
 # if the mark feature is *not* used
@@ -29,6 +29,9 @@ bbox=GlyphInfo("BBox")
 @lheight=bbox[3]
 
 CombiningMarks()
+
+SelectSingletons(0x030A,0x0325)
+MoveReference(-30,0,"ring")
 
 Select("A")
 AddBaseAnchor("bot", 40, 0)

@@ -1,3 +1,8 @@
+Version 0.9.6
+        * build combining marks
+        * some more glyphs in Latin Extended-B, including an alternate
+          form for U+0192  
+
 Version 0.9.5
         * better font naming: use 'Regular' instead of 'Roman' but omit
           'Regular' in the OpenType FullName 

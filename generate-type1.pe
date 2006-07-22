@@ -4,5 +4,12 @@ Open($1)
 SetUniqueID(-1)
 # use OtherSubrs from URW (needs recent ff to work properly)
 ReadOtherSubrsFile("URW-OtherSubrs.ps")
+# bad hack to get the original "florin" back under this name
+# hey, Unicode: florin != U+0192
+Select(0x0192)
+SetUnicodeValue(0xe017,0)
+Select("florin.currency")
+SetUnicodeValue(0x0192)
+
 Reencode("AdobeStandardEncoding")
 Generate($1:r+".pfb","",0x3)

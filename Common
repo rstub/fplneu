@@ -1,5 +1,5 @@
 # -*-Shell-script-*-
-# Time-stamp: <2006-07-15 20:13:25 ralf> 
+# Time-stamp: <2006-07-22 22:50:04 ralf> 
 # Copyright 2005, 2006 Ralf Stubner
 # See the file COPYING (GNU General Public License) for license
 # conditions. 
@@ -29,6 +29,7 @@ SetPref("PreferSpacingAccents",0)
 AddAnchorClass("top",   "default", "latn{"+@LatinAll+"}", "mark", -1, "")
 #AddAnchorClass("bot",   "default", "latn{"+@LatinAll+"}", "mark", -1, "")
 AddAnchorClass("bot",   "default", "latn{"+@LatinAll+"}", "mark", -1, "top")
+AddAnchorClass("horn",  "default", "latn{"+@LatinAll+"}", "mark", -1, "")
 AddAnchorClass("topmark", "mk-mk", "latn{"+@LatinAll+"}", "mkmk", -1, "")
 
 # delete characters with ogonek, at, copyright, registered,
@@ -50,6 +51,16 @@ SelectMore("twosuperior")
 SelectMore("threesuperior") 
 Clear()
 
+if( $italicangle == 0 )
+    # remove mu
+    Select("mu")
+    Clear()
+else
+    # remove f
+    Select("f")
+    Clear()
+endif
+
 # move Delta and rename it to uni2206 
 Select("Delta")
 SetUnicodeValue(0x2206)
@@ -58,6 +69,12 @@ SetUnicodeValue(0x2206)
 Select("paragraph")
 SetUnicodeValue(0xe015)
 SetGlyphName("paragraph.alt1",0)
+Reencode("unicode")
+
+# rename florin
+Select("florin")
+SetUnicodeValue(0xe016)
+SetGlyphName("florin.currency",0)
 Reencode("unicode")
 
 # shift [Tt]commaacent
