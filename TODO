@@ -29,7 +29,7 @@
   visiblespace    ??? uni2423
   perthousandzero ???
 [ ] review hinting (Vstem Bold)
-[ ] \textdiscount, U+2052 COMMERCIAL MINUS SIGN, ./. ??
+[x] \textdiscount, U+2052 COMMERCIAL MINUS SIGN, ./. ??
 [ ] use ReplaceWithReference(), this allows, eg, MoveReference() for
    cacute fixing, consistent hinting, etc
-[ ] upright 'florin', differenciate 'f' and 'florin' in italic shapes
+[x] upright 'florin', differenciate 'f' and 'florin' in italic shapes

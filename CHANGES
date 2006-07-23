@@ -1,7 +1,11 @@
 Version 0.9.6
+        * moved and renamed uni301[AB] to uni27E[67]; neither really
+          fits, but the former ones are specified as 'full width'
         * build combining marks
-        * some more glyphs in Latin Extended-B, including an alternate
-          form for U+0192  
+        * some more glyphs in Latin Extended-B: uni018E, uni01DD,
+          uni0191, uni0192 (alternate form for U+0192)  
+        * added uni2052 (commercial minus sign, \textdiscount) and
+          uni2031 (\textpertenthousand) 
 
 Version 0.9.5
         * better font naming: use 'Regular' instead of 'Roman' but omit

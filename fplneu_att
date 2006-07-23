@@ -1,5 +1,5 @@
 #-*-Shell-script-*-
-#  Time-stamp: <2006-07-22 22:54:11 ralf> 
+#  Time-stamp: <2006-07-23 00:03:19 ralf> 
 # add ATT/OTL features to all fonts
 
 # onum, sups, subs, numr, dnom, and caps for figures
@@ -38,7 +38,7 @@ SelectFewer("i")
 DefaultATT("smcp")
 Select("i")
 # keep this list up-to-date!
-AddATT("Substitution", "latn{"+@LatinROM+",dflt}", "smcp", -1, "i.sc")
+AddATT("Substitution", "latn{"+@NotLatinTRK+"}", "smcp", -1, "i.sc")
 AddATT("Substitution", "latn{"+@LatinTRK+"}", "smcp", -1, "idotaccent.sc")
 Select("dotlessi")
 AddATT("Substitution", "latn{"+@LatinAll+"}", "smcp", -1, "i.sc")

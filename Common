@@ -1,5 +1,5 @@
 # -*-Shell-script-*-
-# Time-stamp: <2006-07-22 22:50:04 ralf> 
+# Time-stamp: <2006-07-23 00:04:20 ralf> 
 # Copyright 2005, 2006 Ralf Stubner
 # See the file COPYING (GNU General Public License) for license
 # conditions. 
@@ -21,13 +21,13 @@ SetUniqueID(-1)
 @LatinROM="MOL,ROM"
 # idotless, Idotaccent
 @LatinTRK="AZE,CRT,TRK"
+@NotLatinTRK=@LatinROM +",dflt"
 # most features get defined for these latin languages
 @LatinAll=@LatinTRK +","+ @LatinROM +",dflt"
 
 ## Anchor Classes
 SetPref("PreferSpacingAccents",0)
 AddAnchorClass("top",   "default", "latn{"+@LatinAll+"}", "mark", -1, "")
-#AddAnchorClass("bot",   "default", "latn{"+@LatinAll+"}", "mark", -1, "")
 AddAnchorClass("bot",   "default", "latn{"+@LatinAll+"}", "mark", -1, "top")
 AddAnchorClass("horn",  "default", "latn{"+@LatinAll+"}", "mark", -1, "")
 AddAnchorClass("topmark", "mk-mk", "latn{"+@LatinAll+"}", "mkmk", -1, "")
